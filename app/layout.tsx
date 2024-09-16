@@ -8,6 +8,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
+import Providers from './providers';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -52,13 +53,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang={locale} className={GeistSans.variable}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <NextIntlClientProvider messages={messages}>
-          <CartProvider cartPromise={cart}>
-            <Navbar />
-            <main>
-              {children}
-              <Toaster closeButton />
-            </main>
-          </CartProvider>
+          <Providers>
+            <CartProvider cartPromise={cart}>
+              <Navbar />
+              <main>
+                {children}
+                <Toaster closeButton />
+              </main>
+            </CartProvider>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

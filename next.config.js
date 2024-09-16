@@ -13,7 +13,16 @@ const nextConfig = {
         pathname: '/s/files/**'
       }
     ]
-  }
+  },
+  experimental: {
+    turbo: {
+      resolveAlias: {
+        'next/server.js': 'next/server',
+        'next/navigation.js': 'next/navigation',
+        'next/headers.js': 'next/headers',
+      },
+    },
+  },
 };
 
 module.exports = withNextIntl(nextConfig);

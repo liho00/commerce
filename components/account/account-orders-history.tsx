@@ -70,7 +70,8 @@ export async function AccountOrdersHistory() {
                 <div className="flex shrink-0 items-center gap-x-4">
                   <div className="hidden sm:flex sm:flex-col sm:items-end">
                     <p className="text-sm leading-6 text-gray-900">
-                      {order?.node?.totalPrice?.currencyCode} {order?.node?.totalPrice?.amount}
+                      {order?.node?.totalPrice?.currencyCode}{' '}
+                      {(parseFloat(order?.node?.totalPrice?.amount) || 0)?.toFixed?.(2)}
                     </p>
                     <p className="mt-1 text-xs leading-5 text-gray-500">
                       <time dateTime="2023-01-23T13:23Z">

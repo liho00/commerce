@@ -38,7 +38,17 @@ export default async function AccountPage() {
             <TabsTrigger value="password">Password</TabsTrigger>
           </TabsList>
           <TabsContent value="orders">
-            <AccountOrdersHistory />
+            <Card>
+              <CardHeader>
+                <CardTitle>Orders</CardTitle>
+                <CardDescription>
+                  View your order history here. Click on an order to view more details
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <AccountOrdersHistory />
+              </CardContent>
+            </Card>
           </TabsContent>
           <TabsContent value="account">
             <Card>

@@ -2,6 +2,7 @@ import { auth } from 'auth';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+import { AIChat } from 'components/ai-chat';
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
   openGraph: {
@@ -14,6 +15,7 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* <AIChat /> */}
       <ThreeItemGrid />
       <Carousel />
       <Footer />

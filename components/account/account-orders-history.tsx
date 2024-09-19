@@ -5,6 +5,7 @@ import { shopifyCustomerFetch } from 'lib/shopify/customer/index';
 import { CUSTOMER_DETAILS_QUERY } from 'lib/shopify/customer/queries/customer';
 import { CustomerDetailsData } from 'lib/shopify/customer/types';
 import { auth } from 'auth';
+import { Button } from '@/components/ui/button';
 
 // import { queryClient } from 'app/providers';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
@@ -40,67 +41,84 @@ export async function AccountOrdersHistory() {
   const orders = data?.customer?.orders?.edges || [];
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ul role="list" className="divide-y divide-gray-100">
-        {orders.map((order) => (
-          <li>
-            <Link
-              className="relative flex justify-between gap-x-6 py-5"
-              key={order.node.id}
-              href={`/account/orders/${btoa(order.node.id)}`}
-            >
-              {order.node.lineItems.edges.map((item: any) => (
-                <>
-                  <div className="flex min-w-0 gap-x-4">
-                    <img
-                      className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                      src={item?.node?.image?.url}
-                      alt=""
-                    />
-                    <div className="min-w-0 flex-auto">
-                      <p className="text-sm font-semibold leading-6 text-gray-900">
-                        <span>
-                          <span className="absolute inset-x-0 -top-px bottom-0"></span>#
-                          {order.node.number}
-                        </span>
-                      </p>
-                      <p className="mt-1 flex text-xs leading-5 text-gray-500">
-                        <span className="relative truncate hover:underline">
-                          <span key={item?.node?.id}>{item?.node?.title}</span>
-                        </span>
-                      </p>
+      <div
+        className="container mx-auto"
+        style={{
+          zoom: 0.8
+        }}
+      >
+        {orders.map((order, index) => (
+          <div key={order.node.id} className="mb-12 border-t pt-8">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <div className="font-semibold">Order number</div>
+                <div>#{order.node.number}</div>
+              </div>
+              <div>
+                <div className="font-semibold">Date placed</div>
+                <div>{dayjs(order.node.processedAt).format('MMMM D, YYYY')}</div>
+              </div>
+              <div>
+                <div className="font-semibold">Total amount</div>
+                <div>
+                  {/* ${order.node.totalPriceV2.amount.toFixed(2)} */}
+                  {order?.node?.totalPrice?.currencyCode}{' '}
+                  {(parseFloat(order?.node?.totalPrice?.amount) || 0)?.toFixed?.(2)}
+                </div>
+              </div>
+              <div>
+                <Button variant="outline" className="mr-2">
+                  View Order
+                </Button>
+                <Button variant="outline">View Invoice</Button>
+              </div>
+            </div>
+            {order.node.lineItems.edges.map((item: any, index: any) => (
+              <div key={index} className="flex border-t py-8">
+                <img
+                  src={item?.node?.image?.url}
+                  alt={item.name}
+                  className="mr-6 h-24 w-24 rounded-md bg-[#eee] object-contain"
+                />
+                <div className="flex-grow">
+                  <div className="mb-2 flex justify-between">
+                    <h3 className="text-lg font-semibold">{item.node.title}</h3>
+                    <span className="font-semibold">${(0).toFixed(2)}</span>
+                  </div>
+                  <p className="mb-4 text-gray-600">{item.description}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <svg
+                        className="mr-2 h-5 w-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-sm text-gray-600">Delivered on July 12, 2021</span>
+                    </div>
+                    <div>
+                      <Button variant="link" className="mr-4 text-blue-600">
+                        View product
+                      </Button>
+                      <Button variant="link" className="text-blue-600">
+                        Buy again
+                      </Button>
                     </div>
                   </div>
-                  <div className="flex shrink-0 items-center gap-x-4">
-                    <div className="hidden sm:flex sm:flex-col sm:items-end">
-                      <p className="text-sm leading-6 text-gray-900">
-                        {order?.node?.totalPrice?.currencyCode}{' '}
-                        {(parseFloat(order?.node?.totalPrice?.amount) || 0)?.toFixed?.(2)}
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-gray-500">
-                        <time dateTime="2023-01-23T13:23Z">
-                          {dayjs(order?.node?.createdAt).format('MMMM D, YYYY')}
-                        </time>
-                      </p>
-                    </div>
-                    <svg
-                      className="h-5 w-5 flex-none text-gray-400"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </>
-              ))}
-            </Link>
-          </li>
+                </div>
+              </div>
+            ))}
+          </div>
         ))}
-      </ul>
+      </div>
     </HydrationBoundary>
   );
 }

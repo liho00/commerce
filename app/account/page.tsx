@@ -6,7 +6,7 @@ import { shopifyCustomerFetch } from 'lib/shopify/customer/index';
 import { CUSTOMER_DETAILS_QUERY } from 'lib/shopify/customer/queries/customer';
 import { CustomerDetailsData } from 'lib/shopify/customer/types';
 import { AccountOrdersHistory } from 'components/account/account-orders-history';
-import { AccountProfile } from 'components/account/account-profile';
+import { AccountProfile, SignOut } from 'components/account/account-profile';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -32,15 +32,14 @@ export default async function AccountPage() {
     <>
       <div className="mx-auto max-w-screen-sm p-4">
         <Tabs defaultValue="orders" className="">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="orders">Orders</TabsTrigger>
             <TabsTrigger value="account">Account</TabsTrigger>
-            <TabsTrigger value="password">Password</TabsTrigger>
           </TabsList>
           <TabsContent value="orders">
             <Card>
               <CardHeader>
-                <CardTitle>Orders</CardTitle>
+                <CardTitle>Order history </CardTitle>
                 <CardDescription>
                   View your order history here. Click on an order to view more details
                 </CardDescription>
@@ -68,31 +67,18 @@ export default async function AccountPage() {
                   <Input id="username" defaultValue="@peduarte" />
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="space-x-2">
                 <Button>Save changes</Button>
               </CardFooter>
-            </Card>
-          </TabsContent>
-          <TabsContent value="password">
-            <Card>
+              <hr />
               <CardHeader>
-                <CardTitle>Password</CardTitle>
+                <CardTitle>Account</CardTitle>
                 <CardDescription>
-                  Change your password here. After saving, you'll be logged out.
+                  Make changes to your account here. Click save when you're done.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <Input id="current" type="password" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <Input id="new" type="password" />
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button>Save password</Button>
+              <CardFooter className="space-x-2">
+                <SignOut />
               </CardFooter>
             </Card>
           </TabsContent>

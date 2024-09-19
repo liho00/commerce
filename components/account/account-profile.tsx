@@ -1,6 +1,6 @@
 // import { SignOut } from 'components/layout/navbar/account';
-import { Button } from '@headlessui/react';
 import { signOut } from 'auth/index';
+import { Button } from '@/components/ui/button';
 
 export async function SignOut() {
   return (
@@ -12,7 +12,7 @@ export async function SignOut() {
         });
       }}
     >
-      <Button type="submit">Sign Out</Button>
+        <Button variant="outline">Sign Out</Button>
     </form>
   );
 }

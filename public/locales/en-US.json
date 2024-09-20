@@ -4,5 +4,20 @@
   },
   "page": {
     "hT6mHVlXGJp0oO2qwSldY": "Related Products"
+  },
+  "layout": {
+    "czIMNvnlAqD_vBdr64RkK": "Sort by"
+  },
+  "constants": {
+    "MiG4BIguRjtVhBIpppiJD": "Trending"
+  },
+  "modal": {
+    "-ZlBTrfXkyo_TOlL8Pwh8": "My Cart",
+    "TBEcKTBxEe4cBvCMyz_CW": "Your cart is empty."
+  },
+  "add-to-cart": {
+    "XjC-PN8Yi2hgQ_lf2qPI7": "Out Of Stock",
+    "glsnXf5zlv-expnOwZ1TO": "Add To Cart",
+    "r3MJ1V_glcxFYeAM5hl-p": "Please select an option"
   }
 }

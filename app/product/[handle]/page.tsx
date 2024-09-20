@@ -5,7 +5,7 @@ import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductProvider } from 'components/product/product-context';
-import { ProductDescription } from 'components/product/product-description';
+import { ProductDescription, ProductVariant } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
@@ -81,9 +81,9 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
-          <div className="h-full w-full basis-full lg:basis-4/6">
+      <div className="mx-auto max-w-screen-xl bg-white dark:bg-black rounded-2xl">
+        <div className="flex flex-col p-4 lg:flex-row lg:gap-8">
+          <div className="h-full w-full basis-full lg:basis-3/6">
             <Suspense
               fallback={
                 <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
@@ -98,12 +98,15 @@ export default async function ProductPage({ params }: { params: { handle: string
             </Suspense>
           </div>
 
-          <div className="basis-full lg:basis-2/6">
+          <div className="basis-full lg:basis-3/6">
             <Suspense fallback={null}>
-              <ProductDescription product={product} />
+              <ProductVariant product={product} />
             </Suspense>
           </div>
         </div>
+        <Suspense fallback={null}>
+        <ProductDescription product={product} />
+        </Suspense>
         <RelatedProducts id={product.id} />
       </div>
       <Footer />
@@ -118,7 +121,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="py-8">
+    <div className="p-4 border-t">
       <h2 className="mb-4 text-2xl font-bold">{t('page.hT6mHVlXGJp0oO2qwSldY')}</h2>
       <ul className="flex w-full gap-4 overflow-x-auto pt-1">
         {relatedProducts.map((product) => (

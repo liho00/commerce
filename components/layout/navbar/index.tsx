@@ -14,7 +14,7 @@ export async function Navbar() {
   const menu = await getMenu('main-menu');
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+    <nav className="sticky flex items-center justify-between p-4 lg:px-6 top-0 z-10 backdrop-blur">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />

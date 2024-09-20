@@ -3,8 +3,11 @@ import Collections from 'components/layout/search/collections';
 import FilterList from 'components/layout/search/filter';
 import { sorting } from 'lib/constants';
 import ChildrenWrapper from './children-wrapper';
+import { useTranslations } from 'next-intl';
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
+  const t = useTranslations();
+
   return (
     <>
       <div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white">
@@ -15,7 +18,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
           <ChildrenWrapper>{children}</ChildrenWrapper>
         </div>
         <div className="order-none flex-none md:order-last md:w-[125px]">
-          <FilterList list={sorting} title="Sort by" />
+          <FilterList list={sorting} title={t('layout.czIMNvnlAqD_vBdr64RkK')} />
         </div>
       </div>
       <Footer />

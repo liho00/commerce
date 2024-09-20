@@ -4,5 +4,20 @@
   },
   "page": {
     "hT6mHVlXGJp0oO2qwSldY": "相关产品"
+  },
+  "layout": {
+    "czIMNvnlAqD_vBdr64RkK": "排序方式"
+  },
+  "constants": {
+    "MiG4BIguRjtVhBIpppiJD": "流行趋势"
+  },
+  "modal": {
+    "-ZlBTrfXkyo_TOlL8Pwh8": "我的购物车",
+    "TBEcKTBxEe4cBvCMyz_CW": "您的购物车是空的。"
+  },
+  "add-to-cart": {
+    "XjC-PN8Yi2hgQ_lf2qPI7": "缺货",
+    "glsnXf5zlv-expnOwZ1TO": "添加到购物车",
+    "r3MJ1V_glcxFYeAM5hl-p": "请选择一个选项"
   }
 }

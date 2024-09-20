@@ -7,6 +7,8 @@ import { useProduct } from 'components/product/product-context';
 import { Product, ProductVariant } from 'lib/shopify/types';
 import { useFormState } from 'react-dom';
 import { useCart } from './cart-context';
+import { Button } from '../ui/button';
+import { useTranslations } from 'next-intl';
 
 function SubmitButton({
   availableForSale,
@@ -15,46 +17,42 @@ function SubmitButton({
   availableForSale: boolean;
   selectedVariantId: string | undefined;
 }) {
-  const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
+  const t = useTranslations();
+
+  const buttonClasses = '';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
     return (
-      <button disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
-      </button>
+      <Button size="lg" disabled className={clsx(buttonClasses, disabledClasses)}>
+        {t('add-to-cart.XjC-PN8Yi2hgQ_lf2qPI7')}
+      </Button>
     );
   }
 
-  console.log(selectedVariantId);
   if (!selectedVariantId) {
     return (
-      <button
-        aria-label="Please select an option"
+      <Button
+        size="lg"
+        aria-label={t('add-to-cart.r3MJ1V_glcxFYeAM5hl-p')}
         disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
         {/* <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
         </div> */}
-        Add To Cart
-      </button>
+        {t('add-to-cart.glsnXf5zlv-expnOwZ1TO')}
+      </Button>
     );
   }
 
   return (
-    <button
-      aria-label="Add to cart"
-      className={clsx(buttonClasses, {
-        'hover:opacity-90': true
-      })}
-    >
+    <Button size="lg">
       {/* <div className="absolute left-0 ml-4">
         <PlusIcon className="h-5" />
       </div> */}
-      Add To Cart
-    </button>
+      {t('add-to-cart.glsnXf5zlv-expnOwZ1TO')}
+    </Button>
   );
 }
 

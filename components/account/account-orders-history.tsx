@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import { Progress } from '@/components/ui/progress';
 
 export async function AccountOrdersHistory() {
   const queryClient = new QueryClient();
@@ -42,13 +43,15 @@ export async function AccountOrdersHistory() {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <div
-        className="container mx-auto"
-        style={{
-          zoom: 0.8
-        }}
+        className="container mx-auto text-xs"
+        style={
+          {
+            // zoom: 0.8
+          }
+        }
       >
         {orders.map((order, index) => (
-          <div key={order.node.id} className="mb-12 border-t pt-8">
+          <div key={order.node.id} className="border-t py-8">
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <div className="font-semibold">Order number</div>
@@ -67,10 +70,12 @@ export async function AccountOrdersHistory() {
                 </div>
               </div>
               <div>
-                <Button variant="outline" className="mr-2">
+                <Button variant="outline" className="mr-2 text-sm">
                   View Order
                 </Button>
-                <Button variant="outline">View Invoice</Button>
+                <Button variant="outline" className="text-sm">
+                  View Invoice
+                </Button>
               </div>
             </div>
             {order.node.lineItems.edges.map((item: any, index: any) => (
@@ -82,7 +87,7 @@ export async function AccountOrdersHistory() {
                 />
                 <div className="flex-grow">
                   <div className="mb-2 flex justify-between">
-                    <h3 className="text-lg font-semibold">{item.node.title}</h3>
+                    <h3 className="text-sm font-semibold">{item.node.title}</h3>
                     <span className="font-semibold">${(0).toFixed(2)}</span>
                   </div>
                   <p className="mb-4 text-gray-600">{item.description}</p>
@@ -102,13 +107,13 @@ export async function AccountOrdersHistory() {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-sm text-gray-600">Delivered on July 12, 2021</span>
+                      <span className="text-xs text-gray-600">Delivered on July 12, 2021</span>
                     </div>
                     <div>
-                      <Button variant="link" className="mr-4 text-blue-600">
+                      <Button variant="link" className="mr-4 text-sm text-primary">
                         View product
                       </Button>
-                      <Button variant="link" className="text-blue-600">
+                      <Button variant="link" className="text-sm text-primary">
                         Buy again
                       </Button>
                     </div>
@@ -116,6 +121,18 @@ export async function AccountOrdersHistory() {
                 </div>
               </div>
             ))}
+
+            <hr />
+            <div className="pt-8">
+              <p className="mb-4">Preparing to ship on March 24, 2021</p>
+              <Progress value={33} className="h-2 bg-gray-200" indicatorClassName="bg-primary" />
+              <div className="mt-2 flex justify-between text-sm">
+                <span className="font-semibold text-primary">Order placed</span>
+                <span>Processing</span>
+                <span>Shipped</span>
+                <span>Delivered</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>

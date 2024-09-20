@@ -21,7 +21,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 export default async function AccountPage() {
   const session: any = await auth();
 

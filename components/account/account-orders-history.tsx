@@ -40,7 +40,7 @@ export async function AccountOrdersHistory() {
   });
 
   const orders = data?.customer?.orders?.edges || [];
-  console.log(data)
+  console.log(data);
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <div
@@ -129,7 +129,7 @@ export async function AccountOrdersHistory() {
             <hr />
             <div className="pt-8">
               <p className="mb-4">Preparing to ship on March 24, 2021</p>
-              <Progress value={33} className="h-2 bg-gray-200" indicatorClassName="bg-primary" />
+              <Progress value={33} className="h-2 bg-gray-200" />
               <div className="mt-2 flex justify-between text-xs">
                 <span className="font-semibold text-primary">Order placed</span>
                 <span>Processing</span>

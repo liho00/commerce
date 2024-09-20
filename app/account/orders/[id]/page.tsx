@@ -140,16 +140,16 @@ export default async function Page({ params }: { params: { id: string } }) {
               <h3 className="font-semibold">Shipping updates</h3>
               <p>f••••@example.com</p>
               <p>1•••••••40</p>
-              <a href="#" className="text-blue-600 hover:underline">
+              <a href="#" className="text-primary hover:underline">
                 Edit
               </a>
             </div>
           </div>
           <div>
             <p className="mb-2">Preparing to ship on March 24, 2021</p>
-            <Progress value={33} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
+            <Progress value={33} className="h-2 bg-gray-200" />
             <div className="mt-2 flex justify-between text-sm">
-              <span className="font-semibold text-blue-600">Order placed</span>
+              <span className="font-semibold text-primary">Order placed</span>
               <span>Processing</span>
               <span>Shipped</span>
               <span>Delivered</span>
@@ -186,18 +186,18 @@ export default async function Page({ params }: { params: { id: string } }) {
               <h3 className="font-semibold">Shipping updates</h3>
               <p>f••••@example.com</p>
               <p>1•••••••40</p>
-              <a href="#" className="text-blue-600 hover:underline">
+              <a href="#" className="text-primary hover:underline">
                 Edit
               </a>
             </div>
           </div>
           <div>
             <p className="mb-2">Shipped on March 23, 2021</p>
-            <Progress value={66} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
+            <Progress value={66} className="h-2 bg-gray-200" />
             <div className="mt-2 flex justify-between text-sm">
               <span>Order placed</span>
               <span>Processing</span>
-              <span className="font-semibold text-blue-600">Shipped</span>
+              <span className="font-semibold text-primary">Shipped</span>
               <span>Delivered</span>
             </div>
           </div>
@@ -214,7 +214,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div>
               <h3 className="font-semibold">Payment information</h3>
               <div className="flex items-center space-x-2">
-                <div className="h-6 w-8 rounded bg-blue-600"></div>
+                <div className="h-6 w-8 rounded bg-primary"></div>
                 <p className="text-sm text-gray-600">Ending with 4242</p>
               </div>
               <p className="text-sm text-gray-600">Expires 02 / 24</p>
@@ -235,7 +235,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
             <div className="mt-2 flex justify-between text-lg font-semibold">
               <span>Order total</span>
-              <span className="text-blue-600">$83.16</span>
+              <span className="text-primary">$83.16</span>
             </div>
           </div>
         </div>

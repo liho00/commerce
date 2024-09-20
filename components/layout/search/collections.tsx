@@ -8,7 +8,6 @@ import { getTranslations } from 'next-intl/server';
 async function CollectionList() {
   const collections = await getCollections();
   const t = await getTranslations();
-
   return <FilterList list={collections} title={t('collections.wtPckyDYQhz-P1_0FOWu9')} />;
 }
 

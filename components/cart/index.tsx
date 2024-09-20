@@ -17,8 +17,8 @@ export default async function Cart() {
       ...cart,
       checkoutUrl: newCheckoutUrl.toString()
     };
-    return <CartModal cart={cart} />;
+    return <CartModal />;
   } else {
-    return <CartModal cart={cart} />;
+    return <CartModal />;
   }
 }

@@ -18,6 +18,7 @@ const CUSTOMER_FRAGMENT = `#graphql
     number
     processedAt
     financialStatus
+    statusPageUrl
     fulfillments(first: 1) {
       nodes {
         status
@@ -27,16 +28,14 @@ const CUSTOMER_FRAGMENT = `#graphql
       amount
       currencyCode
     }
-    lineItems(first: 2) {
+    lineItems(first: 100) {
       edges {
         node {
+          id
+          quantity
           title
-          image {
-            altText
-            height
-            url
-            width
-          }
+          variantTitle
+          sku
         }
       }
     }

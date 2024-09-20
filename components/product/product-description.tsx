@@ -31,7 +31,7 @@ export function ProductDescription({ product }: { product: Product }) {
       <hr />
       {product.descriptionHtml ? (
         <Prose
-          className="mx-auto text-sm leading-tight text-gray-800 dark:text-white/[60%]"
+          className="mx-auto text-sm leading-tight text-gray-800 dark:text-white/[60%] py-8"
           html={product.descriptionHtml}
         />
       ) : null}

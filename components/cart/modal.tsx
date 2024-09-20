@@ -86,9 +86,9 @@ export default function CartModal() {
               </div>
 
               {!cart || cart.lines.length === 0 ? (
-                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingCartIcon className="h-16" />
-                  <p className="mt-6 text-center text-2xl font-bold">{t('modal.TBEcKTBxEe4cBvCMyz_CW')}</p>
+                <div className="h-full flex w-full flex-col items-center justify-center overflow-hidden">
+                  <ShoppingCartIcon className="h-12" />
+                  <p className="mt-6 text-center font-bold">{t('modal.TBEcKTBxEe4cBvCMyz_CW')}</p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
@@ -179,7 +179,7 @@ export default function CartModal() {
                   </ul>
                   <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
-                      <p>Taxes</p>
+                      <p>{t('modal._-IUC8hTWm4QFNIpU50SY')}</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalTaxAmount.amount}
@@ -187,11 +187,11 @@ export default function CartModal() {
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Shipping</p>
-                      <p className="text-right">Calculated at checkout</p>
+                      <p>{t('modal.-BWRXHj9E7kmrzo3BPanc')}</p>
+                      <p className="text-right">{t('modal.iYhauHJ-pctyawGFiZ76e')}</p>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Total</p>
+                      <p>{t('modal.dfVi55uO2Pn3jjEb4qgOF')}</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalAmount.amount}
@@ -214,6 +214,7 @@ export default function CartModal() {
 
 function CheckoutButton() {
   const { pending } = useFormStatus();
+  const t = useTranslations();
 
   return (
     <button
@@ -221,7 +222,7 @@ function CheckoutButton() {
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : 'Proceed to Checkout'}
+      {pending ? <LoadingDots className="bg-white" /> : t('modal.dj5oaFOHYiLVAJj3dY3Rj')}
     </button>
   );
 }

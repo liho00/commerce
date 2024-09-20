@@ -7,11 +7,18 @@ import { Suspense } from 'react';
 import { Account } from './account';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
+import {getTranslations} from 'next-intl/server';
 
 const { SITE_NAME } = process.env;
 
 export async function Navbar() {
-  const menu = await getMenu('main-menu');
+  // const menu = await getMenu('main-menu');
+  const t = await getTranslations();
+
+  const menu = [
+    { title: t('index.lDadUs190AL4V9zr1SDB8'), path: '/search' },
+    { title: t('index.y4FJVudTI8vkGwI-Nvlkd'), path: '/contact' }
+  ]
 
   return (
     <nav className="sticky flex items-center justify-between p-4 lg:px-6 top-0 z-10 backdrop-blur">

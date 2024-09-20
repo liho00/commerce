@@ -16,147 +16,6 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 
-function OrderSummary() {
-  return (
-    <div className="mx-auto max-w-4xl space-y-8 p-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Order #54879</h1>
-        <a href="#" className="text-blue-600 hover:underline">
-          View invoice →
-        </a>
-      </div>
-
-      <div className="space-y-6 rounded-lg bg-white p-6 shadow">
-        <div className="flex space-x-4">
-          <Image
-            src="/placeholder.svg"
-            alt="Nomad Tumbler"
-            width={100}
-            height={100}
-            className="rounded-lg"
-          />
-          <div>
-            <h2 className="font-semibold">Nomad Tumbler</h2>
-            <p className="text-gray-600">$35.00</p>
-            <p className="mt-2 text-sm text-gray-500">
-              This durable and portable insulated tumbler will keep your beverage at the perfect
-              temperature during your next adventure.
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-between text-sm">
-          <div>
-            <h3 className="font-semibold">Delivery address</h3>
-            <p>Floyd Miles</p>
-            <p>7363 Cynthia Pass</p>
-            <p>Toronto, ON N3Y 4H8</p>
-          </div>
-          <div>
-            <h3 className="font-semibold">Shipping updates</h3>
-            <p>f••••@example.com</p>
-            <p>1•••••••40</p>
-            <a href="#" className="text-blue-600 hover:underline">
-              Edit
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className="mb-2">Preparing to ship on March 24, 2021</p>
-          <Progress value={33} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
-          <div className="mt-2 flex justify-between text-sm">
-            <span className="font-semibold text-blue-600">Order placed</span>
-            <span>Processing</span>
-            <span>Shipped</span>
-            <span>Delivered</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-6 rounded-lg bg-white p-6 shadow">
-        <div className="flex space-x-4">
-          <Image
-            src="/placeholder.svg"
-            alt="Minimalist Wristwatch"
-            width={100}
-            height={100}
-            className="rounded-lg"
-          />
-          <div>
-            <h2 className="font-semibold">Minimalist Wristwatch</h2>
-            <p className="text-gray-600">$149.00</p>
-            <p className="mt-2 text-sm text-gray-500">
-              This contemporary wristwatch has a clean, minimalist look and high quality components.
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-between text-sm">
-          <div>
-            <h3 className="font-semibold">Delivery address</h3>
-            <p>Floyd Miles</p>
-            <p>7363 Cynthia Pass</p>
-            <p>Toronto, ON N3Y 4H8</p>
-          </div>
-          <div>
-            <h3 className="font-semibold">Shipping updates</h3>
-            <p>f••••@example.com</p>
-            <p>1•••••••40</p>
-            <a href="#" className="text-blue-600 hover:underline">
-              Edit
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className="mb-2">Shipped on March 23, 2021</p>
-          <Progress value={66} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
-          <div className="mt-2 flex justify-between text-sm">
-            <span>Order placed</span>
-            <span>Processing</span>
-            <span className="font-semibold text-blue-600">Shipped</span>
-            <span>Delivered</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-4 rounded-lg bg-gray-50 p-6">
-        <div className="flex justify-between">
-          <div>
-            <h3 className="font-semibold">Billing address</h3>
-            <p className="text-sm text-gray-600">Floyd Miles</p>
-            <p className="text-sm text-gray-600">7363 Cynthia Pass</p>
-            <p className="text-sm text-gray-600">Toronto, ON N3Y 4H8</p>
-          </div>
-          <div>
-            <h3 className="font-semibold">Payment information</h3>
-            <div className="flex items-center space-x-2">
-              <div className="h-6 w-8 rounded bg-blue-600"></div>
-              <p className="text-sm text-gray-600">Ending with 4242</p>
-            </div>
-            <p className="text-sm text-gray-600">Expires 02 / 24</p>
-          </div>
-        </div>
-        <div className="border-t pt-4">
-          <div className="flex justify-between">
-            <span>Subtotal</span>
-            <span>$72.00</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Shipping</span>
-            <span>$5.00</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Tax</span>
-            <span>$6.16</span>
-          </div>
-          <div className="mt-2 flex justify-between text-lg font-semibold">
-            <span>Order total</span>
-            <span className="text-blue-600">$83.16</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default async function Page({ params }: { params: { id: string } }) {
   const orderId = atob(params.id);
   const queryClient = new QueryClient();
@@ -236,7 +95,152 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <OrderSummary />
+      <div className="mx-auto max-w-4xl space-y-8 p-6">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Order {order.name}</h1>
+          <a
+            href={`https://0e70ea-3.myshopify.com/67008397566/orders/a9cb0a696f270b7a59a53a72b4dacbb0/authenticate?key=1578ccd6ffffb9c2ec1e1d5e2eaebdf4`}
+            className="text-primary hover:underline"
+          >
+            View Order Status →
+          </a>
+        </div>
+
+        <div className="space-y-6 rounded-lg bg-white p-6 shadow">
+          <div className="flex space-x-4">
+            <img
+              src={order?.node?.image || '/img/empty.svg'}
+              alt={order.name}
+              className="mr-6 h-24 w-24 rounded-md bg-[#eee] object-contain"
+            />
+            {/* <Image
+              src="/placeholder.svg"
+              alt="Nomad Tumbler"
+              width={100}
+              height={100}
+              className="rounded-lg"
+            /> */}
+            <div>
+              <h2 className="font-semibold">Nomad Tumbler</h2>
+              <p className="text-gray-600">$35.00</p>
+              <p className="mt-2 text-sm text-gray-500">
+                This durable and portable insulated tumbler will keep your beverage at the perfect
+                temperature during your next adventure.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between text-sm">
+            <div>
+              <h3 className="font-semibold">Delivery address</h3>
+              <p>Floyd Miles</p>
+              <p>7363 Cynthia Pass</p>
+              <p>Toronto, ON N3Y 4H8</p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Shipping updates</h3>
+              <p>f••••@example.com</p>
+              <p>1•••••••40</p>
+              <a href="#" className="text-blue-600 hover:underline">
+                Edit
+              </a>
+            </div>
+          </div>
+          <div>
+            <p className="mb-2">Preparing to ship on March 24, 2021</p>
+            <Progress value={33} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
+            <div className="mt-2 flex justify-between text-sm">
+              <span className="font-semibold text-blue-600">Order placed</span>
+              <span>Processing</span>
+              <span>Shipped</span>
+              <span>Delivered</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-6 rounded-lg bg-white p-6 shadow">
+          <div className="flex space-x-4">
+            <Image
+              src="/placeholder.svg"
+              alt="Minimalist Wristwatch"
+              width={100}
+              height={100}
+              className="rounded-lg"
+            />
+            <div>
+              <h2 className="font-semibold">Minimalist Wristwatch</h2>
+              <p className="text-gray-600">$149.00</p>
+              <p className="mt-2 text-sm text-gray-500">
+                This contemporary wristwatch has a clean, minimalist look and high quality
+                components.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between text-sm">
+            <div>
+              <h3 className="font-semibold">Delivery address</h3>
+              <p>Floyd Miles</p>
+              <p>7363 Cynthia Pass</p>
+              <p>Toronto, ON N3Y 4H8</p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Shipping updates</h3>
+              <p>f••••@example.com</p>
+              <p>1•••••••40</p>
+              <a href="#" className="text-blue-600 hover:underline">
+                Edit
+              </a>
+            </div>
+          </div>
+          <div>
+            <p className="mb-2">Shipped on March 23, 2021</p>
+            <Progress value={66} className="h-2 bg-gray-200" indicatorClassName="bg-blue-600" />
+            <div className="mt-2 flex justify-between text-sm">
+              <span>Order placed</span>
+              <span>Processing</span>
+              <span className="font-semibold text-blue-600">Shipped</span>
+              <span>Delivered</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4 rounded-lg bg-gray-50 p-6">
+          <div className="flex justify-between">
+            <div>
+              <h3 className="font-semibold">Billing address</h3>
+              <p className="text-sm text-gray-600">Floyd Miles</p>
+              <p className="text-sm text-gray-600">7363 Cynthia Pass</p>
+              <p className="text-sm text-gray-600">Toronto, ON N3Y 4H8</p>
+            </div>
+            <div>
+              <h3 className="font-semibold">Payment information</h3>
+              <div className="flex items-center space-x-2">
+                <div className="h-6 w-8 rounded bg-blue-600"></div>
+                <p className="text-sm text-gray-600">Ending with 4242</p>
+              </div>
+              <p className="text-sm text-gray-600">Expires 02 / 24</p>
+            </div>
+          </div>
+          <div className="border-t pt-4">
+            <div className="flex justify-between">
+              <span>Subtotal</span>
+              <span>$72.00</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Shipping</span>
+              <span>$5.00</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Tax</span>
+              <span>$6.16</span>
+            </div>
+            <div className="mt-2 flex justify-between text-lg font-semibold">
+              <span>Order total</span>
+              <span className="text-blue-600">$83.16</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto" style={{}}>
         <div key={order.id} className="mb-12 border-t pt-8">
           <div className="mb-4 flex items-center justify-between">
@@ -260,7 +264,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Button variant="outline" className="mr-2">
                 View Order
               </Button>
-              <Button variant="outline">View Invoice</Button>
+              {/* <Button variant="outline">View Invoice</Button> */}
             </div>
           </div>
           {order.lineItems.nodes.map((item: any, index: any) => (

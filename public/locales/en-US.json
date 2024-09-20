@@ -13,11 +13,33 @@
   },
   "modal": {
     "-ZlBTrfXkyo_TOlL8Pwh8": "My Cart",
-    "TBEcKTBxEe4cBvCMyz_CW": "Your cart is empty."
+    "TBEcKTBxEe4cBvCMyz_CW": "Your cart is empty.",
+    "_-IUC8hTWm4QFNIpU50SY": "Taxes",
+    "-BWRXHj9E7kmrzo3BPanc": "Shipping",
+    "iYhauHJ-pctyawGFiZ76e": "Calculated at checkout",
+    "dfVi55uO2Pn3jjEb4qgOF": "Total",
+    "dj5oaFOHYiLVAJj3dY3Rj": "Proceed to Checkout"
   },
   "add-to-cart": {
     "XjC-PN8Yi2hgQ_lf2qPI7": "Out Of Stock",
     "glsnXf5zlv-expnOwZ1TO": "Add To Cart",
     "r3MJ1V_glcxFYeAM5hl-p": "Please select an option"
+  },
+  "footer": {
+    "RMNG3wcNyJ7hM-ErKYsnH": "About",
+    "B7sVPVqpW-sDT04WPeVTK": "Blog",
+    "XODqkyjylqU4W75jcboOB": "Jobs",
+    "9sBNnZhdNLYXYsxOBeAfV": "Press",
+    "6wKcYLMCh5W6j-fHTFykU": "Accessibility",
+    "vE-2aHwx8EUCpUWNeppON": "Partners",
+    "rHNOoGnPMwl0vrOFQ09Un": "Facebook"
+  },
+  "index": {
+    "znwQ0IjmauMj8H2H7fpkM": "Home",
+    "lDadUs190AL4V9zr1SDB8": "Products",
+    "y4FJVudTI8vkGwI-Nvlkd": "Contact"
+  },
+  "collections": {
+    "wtPckyDYQhz-P1_0FOWu9": "Collections"
   }
 }

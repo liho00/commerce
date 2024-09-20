@@ -3,10 +3,13 @@ import { Suspense } from 'react';
 
 import { getCollections } from 'lib/shopify';
 import FilterList from './filter';
+import { getTranslations } from 'next-intl/server';
 
 async function CollectionList() {
   const collections = await getCollections();
-  return <FilterList list={collections} title="Collections" />;
+  const t = await getTranslations();
+
+  return <FilterList list={collections} title={t('collections.wtPckyDYQhz-P1_0FOWu9')} />;
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';

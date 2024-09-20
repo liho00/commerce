@@ -9,15 +9,37 @@
     "czIMNvnlAqD_vBdr64RkK": "排序方式"
   },
   "constants": {
-    "MiG4BIguRjtVhBIpppiJD": "流行趋势"
+    "MiG4BIguRjtVhBIpppiJD": "热门"
   },
   "modal": {
     "-ZlBTrfXkyo_TOlL8Pwh8": "我的购物车",
-    "TBEcKTBxEe4cBvCMyz_CW": "您的购物车是空的。"
+    "TBEcKTBxEe4cBvCMyz_CW": "您的购物车是空的。",
+    "_-IUC8hTWm4QFNIpU50SY": "税收",
+    "-BWRXHj9E7kmrzo3BPanc": "运费",
+    "iYhauHJ-pctyawGFiZ76e": "结账时计算",
+    "dfVi55uO2Pn3jjEb4qgOF": "总计",
+    "dj5oaFOHYiLVAJj3dY3Rj": "进行结算"
   },
   "add-to-cart": {
     "XjC-PN8Yi2hgQ_lf2qPI7": "缺货",
     "glsnXf5zlv-expnOwZ1TO": "添加到购物车",
     "r3MJ1V_glcxFYeAM5hl-p": "请选择一个选项"
+  },
+  "footer": {
+    "RMNG3wcNyJ7hM-ErKYsnH": "关于",
+    "B7sVPVqpW-sDT04WPeVTK": "博客",
+    "XODqkyjylqU4W75jcboOB": "工作机会",
+    "9sBNnZhdNLYXYsxOBeAfV": "媒体",
+    "6wKcYLMCh5W6j-fHTFykU": "无障碍",
+    "vE-2aHwx8EUCpUWNeppON": "合作伙伴",
+    "rHNOoGnPMwl0vrOFQ09Un": "Facebook"
+  },
+  "index": {
+    "znwQ0IjmauMj8H2H7fpkM": "首页",
+    "lDadUs190AL4V9zr1SDB8": "产品",
+    "y4FJVudTI8vkGwI-Nvlkd": "联系我们"
+  },
+  "collections": {
+    "wtPckyDYQhz-P1_0FOWu9": "系列"
   }
 }

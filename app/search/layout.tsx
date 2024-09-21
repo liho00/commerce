@@ -21,7 +21,6 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
           <FilterList list={sorting} title={t('layout.czIMNvnlAqD_vBdr64RkK')} />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

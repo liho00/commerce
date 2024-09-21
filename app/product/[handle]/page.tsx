@@ -109,7 +109,6 @@ export default async function ProductPage({ params }: { params: { handle: string
         </Suspense>
         <RelatedProducts id={product.id} />
       </div>
-      <Footer />
     </ProductProvider>
   );
 }

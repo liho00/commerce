@@ -10,6 +10,7 @@ import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import Providers from './providers';
 import './globals.css';
+import Footer from 'components/layout/footer';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -51,15 +52,16 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang={locale} className={GeistSans.variable}>
-      <body className="bg-white text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+      <body>
         <NextIntlClientProvider messages={messages}>
           <Providers>
             <CartProvider cartPromise={cart}>
               <Navbar />
-              <main>
+              <main className="mx-auto max-w-screen-2xl space-y-4 px-4 mt-4">
                 {children}
                 <Toaster closeButton />
               </main>
+              <Footer />
             </CartProvider>
           </Providers>
         </NextIntlClientProvider>

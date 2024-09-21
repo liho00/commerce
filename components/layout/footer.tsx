@@ -137,7 +137,7 @@ export default async function Footer() {
         </div>
       </footer> */}
 
-      <footer className="bg-white mt-10">
+      <footer className="bg-slate-50 mt-10">
         <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
           <nav
             aria-label="Footer"

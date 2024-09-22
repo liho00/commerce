@@ -20,6 +20,9 @@ import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import { Star, ShoppingBag, Clock } from 'lucide-react';
+import Form from 'next/form';
+import { signIn, signOut } from 'auth/index';
+
 export default async function HomePage() {
   const session = await auth();
 
@@ -127,7 +130,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="col-span-1 grid w-full rounded-2xl bg-gray-100 p-4 font-[cursive]">
+          <div className="col-span-1 w-full rounded-2xl bg-gray-100 p-4 font-[cursive]">
             <div className="mb-4 flex items-center">
               <img
                 src="/img/getAvatar.jpeg"
@@ -135,33 +138,64 @@ export default async function HomePage() {
                 className="mr-3 h-10 w-10 rounded-full"
               />
               <div>
-                <h2 className="text-lg font-semibold">晚上好，liho_lh</h2>
+                <h2 className="text-lg font-semibold">
+                  您好，{session ? session?.user?.name : '游客'}
+                </h2>
                 <div className="text-sm text-gray-500">
-                  <span className="mr-2">注册</span>
-                  <span>开店</span>
+                  <a
+                    href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account`}
+                    className=""
+                  >
+                    注册
+                  </a>
                 </div>
               </div>
             </div>
             <p className="mb-4 text-center font-bold">理想生活上易拜</p>
-            <p className="mb-4 text-center text-sm text-gray-500">嘿！更懂你的推荐，更便捷的搜索</p>
-            <Button className="w-full">立即登录</Button>
-            <div className="mt-4 flex justify-between">
-              <button className="flex flex-col items-center">
+            <p className="mb-4 text-center text-xs text-gray-500">嘿！更懂你的推荐，更便捷的搜索</p>
+            {!session ? (
+              <Form
+                action={async () => {
+                  'use server';
+                  await signIn('shopify');
+                }}
+              >
+                <Button className="w-full">立即登录</Button>
+              </Form>
+            ) : (
+              <Button className="w-full">
+                <a href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account`}>
+                  我的账户
+                </a>
+              </Button>
+            )}
+            <div className="mt-4 grid grid-cols-4">
+              <a
+                href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account/orders`}
+                className="flex flex-col items-center rounded-xl p-1 transition hover:bg-gray-200"
+              >
                 <Star className="h-6 w-6" />
-                <span className="mt-1 text-xs">宝贝收藏</span>
-              </button>
-              <button className="flex flex-col items-center">
+                <span className="mt-1 text-xs">订单</span>
+              </a>
+              <a
+                href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account/profile`}
+                className="flex flex-col items-center rounded-xl p-1 transition hover:bg-gray-200"
+              >
                 <ShoppingBag className="h-6 w-6" />
-                <span className="mt-1 text-xs">买过的店</span>
-              </button>
-              <button className="flex flex-col items-center">
+                <span className="mt-1 text-xs">资料</span>
+              </a>
+
+              <button className="flex flex-col items-center rounded-xl p-1 transition hover:bg-gray-200">
                 <Star className="h-6 w-6" />
-                <span className="mt-1 text-xs">收藏的店</span>
+                <span className="mt-1 text-xs">购物车</span>
               </button>
-              <button className="flex flex-col items-center">
+              <a
+                href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account/settings`}
+                className="flex cursor-pointer flex-col items-center rounded-xl p-1 transition hover:bg-gray-200"
+              >
                 <Clock className="h-6 w-6" />
-                <span className="mt-1 text-xs">我的足迹</span>
-              </button>
+                <span className="mt-1 text-xs">设置</span>
+              </a>
             </div>
           </div>
         </div>

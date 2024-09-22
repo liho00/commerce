@@ -7,7 +7,7 @@ import Footer from 'components/layout/footer';
 import { AIChat } from 'components/ai-chat';
 import { Button } from '@/components/ui/button';
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+  description: 'ePray - 易拜',
   openGraph: {
     type: 'website'
   }

@@ -57,7 +57,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Providers>
             <CartProvider cartPromise={cart}>
               <Navbar />
-              <main className="mx-auto max-w-screen-2xl space-y-4 px-4 mt-4">
+              <main className="mx-auto max-w-screen-2xl space-y-4 mt-4 px-4">
                 {children}
                 <Toaster closeButton />
               </main>

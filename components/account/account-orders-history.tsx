@@ -21,9 +21,6 @@ export async function AccountOrdersHistory() {
 
   const customerAccessToken = session?.token?.access_token;
 
-  if (!customerAccessToken) {
-    return <div>{t('page.VruPdDPkMVhpEvgfqr4mL')}</div>;
-  }
   const data = await queryClient.fetchQuery({
     queryKey: ['CUSTOMER_DETAILS_QUERY'],
     queryFn: async () => {

@@ -9,11 +9,12 @@ import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import Providers from './providers';
-import './globals.css';
 import Footer from 'components/layout/footer';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
+import './globals.css';
+import Script from 'next/script';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -55,6 +56,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang={locale} className={GeistSans.variable}>
+      <Script
+        id="crip-script"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.$crisp=[];window.CRISP_WEBSITE_ID="1fb30e0f-1462-4bd9-a948-d2b7dc8b8abf";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+        `
+        }}
+      ></Script>
       <body>
         <NextIntlClientProvider messages={messages}>
           <Providers>

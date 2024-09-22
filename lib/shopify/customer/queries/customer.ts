@@ -175,6 +175,7 @@ export const CUSTOMER_ORDER_QUERY = `#graphql
         ...DiscountApplication
       }
     }
+    shipmentStatus
     lineItems(first: 100) {
       nodes {
         ...OrderLineItemFull

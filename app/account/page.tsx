@@ -21,6 +21,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { getTranslations } from 'next-intl/server';
+import { redirect } from 'next/navigation'
 
 // export const runtime = 'edge';
 export default async function AccountPage() {
@@ -28,7 +29,7 @@ export default async function AccountPage() {
   const t = await getTranslations();
 
   if (!session) {
-    return <div>{t('page.VruPdDPkMVhpEvgfqr4mL')}</div>;
+    return redirect('/404');
   }
 
   return (

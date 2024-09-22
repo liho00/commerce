@@ -77,5 +77,11 @@
     "pNPgnDzks7tw0BsQnyatO": "Processing",
     "OBgz3eHyTcncA6bRF4twT": "Shipped",
     "mBu_Va54MOR2M8f14tH5C": "Delivered"
+  },
+  "not-found": {
+    "ifC1Nx8vBCs92d1C3ELUi": "Page not found",
+    "S7_aWEiXj8VpcNWSTVH04": "Sorry, we couldn’t find the page you’re looking for.",
+    "BFjUQ4UE4wdzEciq_asth": "Go back home",
+    "JFE46WONlYqUNNkCsEsQI": "Contact support"
   }
 }

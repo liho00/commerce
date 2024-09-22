@@ -37,8 +37,8 @@ export default async function AccountPage() {
         <Tabs defaultValue="orders" className="">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="orders">{t('page.rDz9kAgA3s72C0FbDbhLU')}</TabsTrigger>
-            <TabsTrigger value="account">{t('page.7hMsD4NOmXpaMrqwitQzl')}</TabsTrigger>
             <TabsTrigger value="addresses">{t('page.0R8Or9ENKObFE-cawJThW')}</TabsTrigger>
+            <TabsTrigger value="account">{t('page.7hMsD4NOmXpaMrqwitQzl')}</TabsTrigger>
           </TabsList>
           <TabsContent value="orders">
             <Card>
@@ -49,35 +49,6 @@ export default async function AccountPage() {
               <CardContent className="space-y-2">
                 <AccountOrdersHistory />
               </CardContent>
-            </Card>
-          </TabsContent>
-          <TabsContent value="account">
-            <Card>
-              <CardHeader>
-                <CardTitle>{t('page.7hMsD4NOmXpaMrqwitQzl')}</CardTitle>
-                <CardDescription>{t('page.wk69sr8YUvX6_bqp6Q5OC')}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="firstName">{t('page.Y3AgoIWoEpnXkYo57sNPr')}</Label>
-                  <Input id="firstName" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="lastName">{t('page.cw8H0JMTZcWmB8afRzfSn')}</Label>
-                  <Input id="lastName" />
-                </div>
-              </CardContent>
-              <CardFooter className="space-x-2">
-                <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
-              </CardFooter>
-              <hr />
-              <CardHeader>
-                <CardTitle>{t('page.UUMtiFpi_xKDsWeQbuuCv')}</CardTitle>
-                <CardDescription>{t('page.mEzEJDZoJcwilw4VsNJQk')}</CardDescription>
-              </CardHeader>
-              <CardFooter className="space-x-2">
-                <SignOut />
-              </CardFooter>
             </Card>
           </TabsContent>
           <TabsContent value="addresses">
@@ -200,6 +171,35 @@ export default async function AccountPage() {
               <CardFooter className="space-x-2">
                 <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
                 <Button variant="destructive">{t('page.rceZWplnrMKPyWIYpj0S-')}</Button>
+              </CardFooter>
+            </Card>
+          </TabsContent>
+          <TabsContent value="account">
+            <Card>
+              <CardHeader>
+                <CardTitle>{t('page.7hMsD4NOmXpaMrqwitQzl')}</CardTitle>
+                <CardDescription>{t('page.wk69sr8YUvX6_bqp6Q5OC')}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="firstName">{t('page.Y3AgoIWoEpnXkYo57sNPr')}</Label>
+                  <Input id="firstName" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="lastName">{t('page.cw8H0JMTZcWmB8afRzfSn')}</Label>
+                  <Input id="lastName" />
+                </div>
+              </CardContent>
+              <CardFooter className="space-x-2">
+                <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
+              </CardFooter>
+              <hr />
+              <CardHeader>
+                <CardTitle>{t('page.UUMtiFpi_xKDsWeQbuuCv')}</CardTitle>
+                <CardDescription>{t('page.mEzEJDZoJcwilw4VsNJQk')}</CardDescription>
+              </CardHeader>
+              <CardFooter className="space-x-2">
+                <SignOut />
               </CardFooter>
             </Card>
           </TabsContent>

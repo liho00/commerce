@@ -45,27 +45,30 @@ export async function AccountOrdersHistory() {
   console.log(data);
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div
-        className="container mx-auto text-xs"
-        style={
-          {
-            // zoom: 0.8
-          }
-        }
-      >
+      <div className="container mx-auto text-xs">
         {orders.map((order, index) => (
-          <div key={order.node.id} className="border-t py-8">
+          <a
+            key={order.node.id}
+            href={order?.node?.statusPageUrl}
+            className="flex flex-col border-t py-8 transition hover:bg-gray-100 px-4"
+          >
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <div className="font-semibold">{t('account-orders-history.LKx7u7dCnvEloun48GiKl')}</div>
+                <div className="font-semibold">
+                  {t('account-orders-history.LKx7u7dCnvEloun48GiKl')}
+                </div>
                 <div>#{order.node.number}</div>
               </div>
               <div>
-                <div className="font-semibold">{t('account-orders-history.3DyfgytbiCCcXIEb6u4ll')}</div>
+                <div className="font-semibold">
+                  {t('account-orders-history.3DyfgytbiCCcXIEb6u4ll')}
+                </div>
                 <div>{dayjs(order.node.processedAt).format('MMMM D, YYYY')}</div>
               </div>
               <div>
-                <div className="font-semibold">{t('account-orders-history.St9WivCOQ4RRryLBHvo2z')}</div>
+                <div className="font-semibold">
+                  {t('account-orders-history.St9WivCOQ4RRryLBHvo2z')}
+                </div>
                 <div>
                   {/* ${order.node.totalPriceV2.amount.toFixed(2)} */}
                   {order?.node?.totalPrice?.currencyCode}{' '}
@@ -133,13 +136,15 @@ export async function AccountOrdersHistory() {
               <p className="mb-4">Preparing to ship on March 24, 2021</p>
               <Progress value={33} className="h-2 bg-gray-200" />
               <div className="mt-2 flex justify-between text-xs">
-                <span className="font-semibold text-primary">{t('account-orders-history.LApUmhTIHmCJLD9g1PbX0')}</span>
+                <span className="font-semibold text-primary">
+                  {t('account-orders-history.LApUmhTIHmCJLD9g1PbX0')}
+                </span>
                 <span>{t('account-orders-history.pNPgnDzks7tw0BsQnyatO')}</span>
                 <span>{t('account-orders-history.OBgz3eHyTcncA6bRF4twT')}</span>
                 <span>{t('account-orders-history.mBu_Va54MOR2M8f14tH5C')}</span>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </HydrationBoundary>

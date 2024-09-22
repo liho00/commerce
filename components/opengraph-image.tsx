@@ -15,12 +15,11 @@ export default async function OpengraphImage(props?: Props): Promise<ImageRespon
 
   return new ImageResponse(
     (
-      <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
-        <div tw="flex flex-none items-center justify-center border border-neutral-700 h-[160px] w-[160px] rounded-3xl">
-          <LogoIcon width="64" height="58" fill="white" />
+        <div tw="flex h-full w-full flex-col items-center justify-center bg-black">
+          <div tw="flex flex-none items-center justify-center border border-neutral-700 h-[260px] w-[260px] rounded-3xl p-5">
+            <img src={`https://epray.com.my/img/E-Pray_Logo.png`} />
+          </div>
         </div>
-        <p tw="mt-12 text-6xl font-bold text-white">{title}</p>
-      </div>
     ),
     {
       width: 1200,

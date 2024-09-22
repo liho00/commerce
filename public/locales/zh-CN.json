@@ -3,7 +3,33 @@
     "EKipnEhWioVSomD2NjH_C": "搜索产品..."
   },
   "page": {
-    "hT6mHVlXGJp0oO2qwSldY": "相关产品"
+    "hT6mHVlXGJp0oO2qwSldY": "相关产品",
+    "VruPdDPkMVhpEvgfqr4mL": "未登录",
+    "rDz9kAgA3s72C0FbDbhLU": "订单",
+    "7hMsD4NOmXpaMrqwitQzl": "账户",
+    "0R8Or9ENKObFE-cawJThW": "地址",
+    "TRIUL__9Ub1-pSYi7P7xJ": "订单历史",
+    "07zRrSRMfxKx1Y76QoXgi": "在此查看您的订单历史。点击订单以查看更多详情",
+    "wk69sr8YUvX6_bqp6Q5OC": "在此更改您的账户信息。完成后点击保存。",
+    "Y3AgoIWoEpnXkYo57sNPr": "名字",
+    "cw8H0JMTZcWmB8afRzfSn": "姓氏",
+    "dcqQLrOss-mygZCqcTgJP": "保存更改",
+    "UUMtiFpi_xKDsWeQbuuCv": "登出",
+    "mEzEJDZoJcwilw4VsNJQk": "结束当前会话并返回登录页面。",
+    "ks_zwZ-yCkBobRY26_dmk": "创建地址",
+    "Nwyzhzx_e-DY2Dx0weQTl": "添加新的地址到您的账户。完成后点击保存。",
+    "bjFVQt9jpURVTEoaTHApZ": "公司",
+    "10amclfW5o3wXh-jd7eaZ": "地址行 1",
+    "PufZxbg49Wph66X6U2D_6": "地址行 2",
+    "-bvTRVPEqtsmHq-nrI1jU": "城市",
+    "d1fIGno-WmycV99yaQ5pW": "州 / 省",
+    "OGxXmJ_nOzBYTSTORfw2o": "邮政编码",
+    "kQvSRHZd_2i51NmKWzMPK": "国家",
+    "ngcuO9tgrDznpb908Zexg": "电话",
+    "ukiRSqhzDaZyf7qxWzyFy": "设为默认地址",
+    "Xyb6OY1e6UTBUtBb7DjK_": "现有地址",
+    "rceZWplnrMKPyWIYpj0S-": "删除地址",
+    "MUAwoe-l9kBp0DmKUm6sM": "查看和管理您现有的地址。点击地址进行编辑。"
   },
   "layout": {
     "czIMNvnlAqD_vBdr64RkK": "排序方式"
@@ -14,22 +40,22 @@
   "modal": {
     "-ZlBTrfXkyo_TOlL8Pwh8": "我的购物车",
     "TBEcKTBxEe4cBvCMyz_CW": "您的购物车是空的。",
-    "_-IUC8hTWm4QFNIpU50SY": "税收",
+    "_-IUC8hTWm4QFNIpU50SY": "税费",
     "-BWRXHj9E7kmrzo3BPanc": "运费",
-    "iYhauHJ-pctyawGFiZ76e": "结账时计算",
+    "iYhauHJ-pctyawGFiZ76e": "结算时计算",
     "dfVi55uO2Pn3jjEb4qgOF": "总计",
     "dj5oaFOHYiLVAJj3dY3Rj": "进行结算"
   },
   "add-to-cart": {
     "XjC-PN8Yi2hgQ_lf2qPI7": "缺货",
-    "glsnXf5zlv-expnOwZ1TO": "添加到购物车",
+    "glsnXf5zlv-expnOwZ1TO": "加入购物车",
     "r3MJ1V_glcxFYeAM5hl-p": "请选择一个选项"
   },
   "footer": {
     "RMNG3wcNyJ7hM-ErKYsnH": "关于",
     "B7sVPVqpW-sDT04WPeVTK": "博客",
-    "XODqkyjylqU4W75jcboOB": "工作机会",
-    "9sBNnZhdNLYXYsxOBeAfV": "媒体",
+    "XODqkyjylqU4W75jcboOB": "工作",
+    "9sBNnZhdNLYXYsxOBeAfV": "新闻",
     "6wKcYLMCh5W6j-fHTFykU": "无障碍",
     "vE-2aHwx8EUCpUWNeppON": "合作伙伴",
     "rHNOoGnPMwl0vrOFQ09Un": "Facebook"
@@ -37,9 +63,19 @@
   "index": {
     "znwQ0IjmauMj8H2H7fpkM": "首页",
     "lDadUs190AL4V9zr1SDB8": "产品",
-    "y4FJVudTI8vkGwI-Nvlkd": "联系我们"
+    "y4FJVudTI8vkGwI-Nvlkd": "联系"
   },
   "collections": {
     "wtPckyDYQhz-P1_0FOWu9": "系列"
+  },
+  "account-orders-history": {
+    "LKx7u7dCnvEloun48GiKl": "订单号",
+    "3DyfgytbiCCcXIEb6u4ll": "下单日期",
+    "St9WivCOQ4RRryLBHvo2z": "总金额",
+    "tGk5YK6J1IBX8kHooDFFD": "预计在 2021 年 3 月 24 日发货",
+    "LApUmhTIHmCJLD9g1PbX0": "订单已下",
+    "pNPgnDzks7tw0BsQnyatO": "处理中",
+    "OBgz3eHyTcncA6bRF4twT": "已发货",
+    "mBu_Va54MOR2M8f14tH5C": "已送达"
   }
 }

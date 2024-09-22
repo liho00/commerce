@@ -1,8 +1,11 @@
 // import { SignOut } from 'components/layout/navbar/account';
 import { signOut } from 'auth/index';
 import { Button } from '@/components/ui/button';
+import { getTranslations } from 'next-intl/server';
 
 export async function SignOut() {
+  const t = await getTranslations();
+
   return (
     <form
       action={async () => {
@@ -12,7 +15,7 @@ export async function SignOut() {
         });
       }}
     >
-        <Button variant="outline">Sign Out</Button>
+        <Button variant="outline">{t('page.UUMtiFpi_xKDsWeQbuuCv')}</Button>
     </form>
   );
 }

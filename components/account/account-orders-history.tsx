@@ -12,15 +12,17 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { Progress } from '@/components/ui/progress';
+import { getTranslations } from 'next-intl/server';
 
 export async function AccountOrdersHistory() {
   const queryClient = new QueryClient();
   const session: any = await auth();
+  const t = await getTranslations();
 
   const customerAccessToken = session?.token?.access_token;
 
   if (!customerAccessToken) {
-    return <div>Not logged in</div>;
+    return <div>{t('page.VruPdDPkMVhpEvgfqr4mL')}</div>;
   }
   const data = await queryClient.fetchQuery({
     queryKey: ['CUSTOMER_DETAILS_QUERY'],
@@ -55,15 +57,15 @@ export async function AccountOrdersHistory() {
           <div key={order.node.id} className="border-t py-8">
             <div className="mb-4 flex items-center justify-between">
               <div>
-                <div className="font-semibold">Order number</div>
+                <div className="font-semibold">{t('account-orders-history.LKx7u7dCnvEloun48GiKl')}</div>
                 <div>#{order.node.number}</div>
               </div>
               <div>
-                <div className="font-semibold">Date placed</div>
+                <div className="font-semibold">{t('account-orders-history.3DyfgytbiCCcXIEb6u4ll')}</div>
                 <div>{dayjs(order.node.processedAt).format('MMMM D, YYYY')}</div>
               </div>
               <div>
-                <div className="font-semibold">Total amount</div>
+                <div className="font-semibold">{t('account-orders-history.St9WivCOQ4RRryLBHvo2z')}</div>
                 <div>
                   {/* ${order.node.totalPriceV2.amount.toFixed(2)} */}
                   {order?.node?.totalPrice?.currencyCode}{' '}
@@ -131,10 +133,10 @@ export async function AccountOrdersHistory() {
               <p className="mb-4">Preparing to ship on March 24, 2021</p>
               <Progress value={33} className="h-2 bg-gray-200" />
               <div className="mt-2 flex justify-between text-xs">
-                <span className="font-semibold text-primary">Order placed</span>
-                <span>Processing</span>
-                <span>Shipped</span>
-                <span>Delivered</span>
+                <span className="font-semibold text-primary">{t('account-orders-history.LApUmhTIHmCJLD9g1PbX0')}</span>
+                <span>{t('account-orders-history.pNPgnDzks7tw0BsQnyatO')}</span>
+                <span>{t('account-orders-history.OBgz3eHyTcncA6bRF4twT')}</span>
+                <span>{t('account-orders-history.mBu_Va54MOR2M8f14tH5C')}</span>
               </div>
             </div>
           </div>

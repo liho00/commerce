@@ -3,7 +3,33 @@
     "EKipnEhWioVSomD2NjH_C": "Search for products..."
   },
   "page": {
-    "hT6mHVlXGJp0oO2qwSldY": "Related Products"
+    "hT6mHVlXGJp0oO2qwSldY": "Related Products",
+    "VruPdDPkMVhpEvgfqr4mL": "Not logged in",
+    "rDz9kAgA3s72C0FbDbhLU": "Orders",
+    "7hMsD4NOmXpaMrqwitQzl": "Account",
+    "0R8Or9ENKObFE-cawJThW": "Addresses",
+    "TRIUL__9Ub1-pSYi7P7xJ": "Order history",
+    "07zRrSRMfxKx1Y76QoXgi": "View your order history here. Click on an order to view more details",
+    "wk69sr8YUvX6_bqp6Q5OC": "Make changes to your account here. Click save when you're done.",
+    "Y3AgoIWoEpnXkYo57sNPr": "First name",
+    "cw8H0JMTZcWmB8afRzfSn": "Last name",
+    "dcqQLrOss-mygZCqcTgJP": "Save changes",
+    "UUMtiFpi_xKDsWeQbuuCv": "Sign Out",
+    "mEzEJDZoJcwilw4VsNJQk": "End your current session and return to the login page.",
+    "ks_zwZ-yCkBobRY26_dmk": "Create address",
+    "Nwyzhzx_e-DY2Dx0weQTl": "Add a new address to your account. Click save when you're done.",
+    "bjFVQt9jpURVTEoaTHApZ": "Company",
+    "10amclfW5o3wXh-jd7eaZ": "Address line 1",
+    "PufZxbg49Wph66X6U2D_6": "Address line 2",
+    "-bvTRVPEqtsmHq-nrI1jU": "City",
+    "d1fIGno-WmycV99yaQ5pW": "State / Province",
+    "OGxXmJ_nOzBYTSTORfw2o": "Zip / Postal Code",
+    "kQvSRHZd_2i51NmKWzMPK": "Country",
+    "ngcuO9tgrDznpb908Zexg": "Phone",
+    "ukiRSqhzDaZyf7qxWzyFy": "Set as default address",
+    "Xyb6OY1e6UTBUtBb7DjK_": "Existing addresses",
+    "rceZWplnrMKPyWIYpj0S-": "Delete address",
+    "MUAwoe-l9kBp0DmKUm6sM": "View and manage your existing addresses. Click on an address to edit it."
   },
   "layout": {
     "czIMNvnlAqD_vBdr64RkK": "Sort by"
@@ -41,5 +67,15 @@
   },
   "collections": {
     "wtPckyDYQhz-P1_0FOWu9": "Collections"
+  },
+  "account-orders-history": {
+    "LKx7u7dCnvEloun48GiKl": "Order number",
+    "3DyfgytbiCCcXIEb6u4ll": "Date placed",
+    "St9WivCOQ4RRryLBHvo2z": "Total amount",
+    "tGk5YK6J1IBX8kHooDFFD": "Preparing to ship on March 24, 2021",
+    "LApUmhTIHmCJLD9g1PbX0": "Order placed",
+    "pNPgnDzks7tw0BsQnyatO": "Processing",
+    "OBgz3eHyTcncA6bRF4twT": "Shipped",
+    "mBu_Va54MOR2M8f14tH5C": "Delivered"
   }
 }

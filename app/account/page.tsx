@@ -20,13 +20,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
+import { getTranslations } from 'next-intl/server';
 
 // export const runtime = 'edge';
 export default async function AccountPage() {
   const session: any = await auth();
+  const t = await getTranslations();
 
   if (!session) {
-    return <div>Not logged in</div>;
+    return <div>{t('page.VruPdDPkMVhpEvgfqr4mL')}</div>;
   }
 
   return (
@@ -34,17 +36,15 @@ export default async function AccountPage() {
       <div className="mx-auto max-w-screen-sm">
         <Tabs defaultValue="orders" className="">
           <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="orders">Orders</TabsTrigger>
-            <TabsTrigger value="account">Account</TabsTrigger>
-            <TabsTrigger value="addresses">Addresses</TabsTrigger>
+            <TabsTrigger value="orders">{t('page.rDz9kAgA3s72C0FbDbhLU')}</TabsTrigger>
+            <TabsTrigger value="account">{t('page.7hMsD4NOmXpaMrqwitQzl')}</TabsTrigger>
+            <TabsTrigger value="addresses">{t('page.0R8Or9ENKObFE-cawJThW')}</TabsTrigger>
           </TabsList>
           <TabsContent value="orders">
             <Card>
               <CardHeader>
-                <CardTitle>Order history </CardTitle>
-                <CardDescription>
-                  View your order history here. Click on an order to view more details
-                </CardDescription>
+                <CardTitle>{t('page.TRIUL__9Ub1-pSYi7P7xJ')} </CardTitle>
+                <CardDescription>{t('page.07zRrSRMfxKx1Y76QoXgi')}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <AccountOrdersHistory />
@@ -54,30 +54,26 @@ export default async function AccountPage() {
           <TabsContent value="account">
             <Card>
               <CardHeader>
-                <CardTitle>Account</CardTitle>
-                <CardDescription>
-                  Make changes to your account here. Click save when you're done.
-                </CardDescription>
+                <CardTitle>{t('page.7hMsD4NOmXpaMrqwitQzl')}</CardTitle>
+                <CardDescription>{t('page.wk69sr8YUvX6_bqp6Q5OC')}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="firstName">First name</Label>
+                  <Label htmlFor="firstName">{t('page.Y3AgoIWoEpnXkYo57sNPr')}</Label>
                   <Input id="firstName" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="lastName">Last name</Label>
+                  <Label htmlFor="lastName">{t('page.cw8H0JMTZcWmB8afRzfSn')}</Label>
                   <Input id="lastName" />
                 </div>
               </CardContent>
               <CardFooter className="space-x-2">
-                <Button>Save changes</Button>
+                <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
               </CardFooter>
               <hr />
               <CardHeader>
-                <CardTitle>Sign Out</CardTitle>
-                <CardDescription>
-                  End your current session and return to the login page.
-                </CardDescription>
+                <CardTitle>{t('page.UUMtiFpi_xKDsWeQbuuCv')}</CardTitle>
+                <CardDescription>{t('page.mEzEJDZoJcwilw4VsNJQk')}</CardDescription>
               </CardHeader>
               <CardFooter className="space-x-2">
                 <SignOut />
@@ -87,50 +83,48 @@ export default async function AccountPage() {
           <TabsContent value="addresses">
             <Card>
               <CardHeader>
-                <CardTitle>Create address</CardTitle>
-                <CardDescription>
-                  Add a new address to your account. Click save when you're done.
-                </CardDescription>
+                <CardTitle>{t('page.ks_zwZ-yCkBobRY26_dmk')}</CardTitle>
+                <CardDescription>{t('page.Nwyzhzx_e-DY2Dx0weQTl')}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="firstName">First name</Label>
+                  <Label htmlFor="firstName">{t('page.Y3AgoIWoEpnXkYo57sNPr')}</Label>
                   <Input id="firstName" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="lastName">Last name</Label>
+                  <Label htmlFor="lastName">{t('page.cw8H0JMTZcWmB8afRzfSn')}</Label>
                   <Input id="lastName" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="company">Company</Label>
+                  <Label htmlFor="company">{t('page.bjFVQt9jpURVTEoaTHApZ')}</Label>
                   <Input id="company" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="addressLine1">Address line 1</Label>
+                  <Label htmlFor="addressLine1">{t('page.10amclfW5o3wXh-jd7eaZ')}</Label>
                   <Input id="addressLine1" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="addressLine2">Address line 2</Label>
+                  <Label htmlFor="addressLine2">{t('page.PufZxbg49Wph66X6U2D_6')}</Label>
                   <Input id="addressLine2" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="city">City</Label>
+                  <Label htmlFor="city">{t('page.-bvTRVPEqtsmHq-nrI1jU')}</Label>
                   <Input id="city" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="state">State / Province</Label>
+                  <Label htmlFor="state">{t('page.d1fIGno-WmycV99yaQ5pW')}</Label>
                   <Input id="state" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="postalCode">Zip / Postal Code</Label>
+                  <Label htmlFor="postalCode">{t('page.OGxXmJ_nOzBYTSTORfw2o')}</Label>
                   <Input id="postalCode" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="country">Country Code</Label>
+                  <Label htmlFor="country">{t('page.kQvSRHZd_2i51NmKWzMPK')}</Label>
                   <Input id="country" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">{t('page.ngcuO9tgrDznpb908Zexg')}</Label>
                   <Input id="phone" />
                 </div>
                 <div className="flex items-center space-x-2">
@@ -139,60 +133,58 @@ export default async function AccountPage() {
                     htmlFor="default"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    Set as default address
+                    {t('page.ukiRSqhzDaZyf7qxWzyFy')}
                   </label>
                 </div>
               </CardContent>
               <CardFooter className="space-x-2">
-                <Button>Save changes</Button>
+                <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
               </CardFooter>
 
               <hr />
               <CardHeader>
-                <CardTitle>Existing addresses</CardTitle>
-                <CardDescription>
-                  View and manage your existing addresses. Click on an address to edit it.
-                </CardDescription>
+                <CardTitle>{t('page.Xyb6OY1e6UTBUtBb7DjK_')}</CardTitle>
+                <CardDescription>{t('page.MUAwoe-l9kBp0DmKUm6sM')}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="firstName">First name</Label>
+                  <Label htmlFor="firstName">{t('page.Y3AgoIWoEpnXkYo57sNPr')}</Label>
                   <Input id="firstName" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="lastName">Last name</Label>
+                  <Label htmlFor="lastName">{t('page.cw8H0JMTZcWmB8afRzfSn')}</Label>
                   <Input id="lastName" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="company">Company</Label>
+                  <Label htmlFor="company">{t('page.bjFVQt9jpURVTEoaTHApZ')}</Label>
                   <Input id="company" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="addressLine1">Address line 1</Label>
+                  <Label htmlFor="addressLine1">{t('page.10amclfW5o3wXh-jd7eaZ')}</Label>
                   <Input id="addressLine1" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="addressLine2">Address line 2</Label>
+                  <Label htmlFor="addressLine2">{t('page.PufZxbg49Wph66X6U2D_6')}</Label>
                   <Input id="addressLine2" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="city">City</Label>
+                  <Label htmlFor="city">{t('page.-bvTRVPEqtsmHq-nrI1jU')}</Label>
                   <Input id="city" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="state">State / Province</Label>
+                  <Label htmlFor="state">{t('page.d1fIGno-WmycV99yaQ5pW')}</Label>
                   <Input id="state" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="postalCode">Zip / Postal Code</Label>
+                  <Label htmlFor="postalCode">{t('page.OGxXmJ_nOzBYTSTORfw2o')}</Label>
                   <Input id="postalCode" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="country">Country Code</Label>
+                  <Label htmlFor="country">{t('page.kQvSRHZd_2i51NmKWzMPK')}</Label>
                   <Input id="country" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">{t('page.ngcuO9tgrDznpb908Zexg')}</Label>
                   <Input id="phone" />
                 </div>
                 <div className="flex items-center space-x-2">
@@ -201,13 +193,13 @@ export default async function AccountPage() {
                     htmlFor="default"
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    Set as default address
+                    {t('page.ukiRSqhzDaZyf7qxWzyFy')}
                   </label>
                 </div>
               </CardContent>
               <CardFooter className="space-x-2">
-                <Button>Save changes</Button>
-                <Button variant="destructive">Delete address</Button>
+                <Button>{t('page.dcqQLrOss-mygZCqcTgJP')}</Button>
+                <Button variant="destructive">{t('page.rceZWplnrMKPyWIYpj0S-')}</Button>
               </CardFooter>
             </Card>
           </TabsContent>

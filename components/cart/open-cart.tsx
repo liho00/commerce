@@ -12,7 +12,7 @@ export default function OpenCart({
   return (
     <>
       <div className="relative flex items-center justify-center">
-        <Button variant="outline" size="icon" asChild>
+        <Button variant="outline" size="icon" className="h-10 w-10" asChild>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"

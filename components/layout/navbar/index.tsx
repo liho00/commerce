@@ -50,11 +50,11 @@ export async function Navbar() {
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <p className="text-xs leading-6 text-gray-900">
-            <strong className="hidden lg:inline font-semibold">ePray 2024</strong>
+            <strong className="hidden font-semibold lg:inline">ePray 2024</strong>
             <svg
               viewBox="0 0 2 2"
               aria-hidden="true"
-              className="hidden lg:inline mx-2 h-0.5 w-0.5 fill-current"
+              className="mx-2 hidden h-0.5 w-0.5 fill-current lg:inline"
             >
               <circle r={1} cx={1} cy={1} />
             </svg>
@@ -62,7 +62,7 @@ export async function Navbar() {
           </p>
           <a
             href="#"
-            className="hidden lg:flex flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+            className="hidden flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 lg:flex"
           >
             立即注册 <span aria-hidden="true">&rarr;</span>
           </a>
@@ -74,49 +74,33 @@ export async function Navbar() {
           </button>
         </div>
       </div>
-      <nav className="sticky top-0 z-10 mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 backdrop-blur">
-        <div className="block flex-none md:hidden">
+      {/*  */}
+      <nav className="sticky top-0 z-10 mx-auto flex flex-col space-y-4 max-w-screen-2xl px-4 py-4 backdrop-blur bg-white/80">
+        {/* <div className="block flex-none md:hidden">
           <Suspense fallback={null}>
             <MobileMenu menu={menu} />
           </Suspense>
-        </div>
-        <div className="flex w-full items-center">
-          <div className="flex w-full md:w-1/3">
-            <Link
-              href="/"
-              prefetch={true}
-              className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
-            >
+        </div> */}
+        <div className="flex lg:grid lg:grid-cols-12 items-center justify-between">
+          <div className="flex items-center justify-center col-span-2">
+            <Link href="/" prefetch={true} className="">
               <LogoSquare />
-              {/* <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div> */}
             </Link>
-            {/* {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center">
-              {menu.map((item: Menu) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.path}
-                    prefetch={true}
-                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null} */}
           </div>
-          <div className="hidden justify-center md:flex md:w-1/3">
+          <div className="hidden lg:flex w-full justify-center col-span-8">
             <Suspense fallback={<SearchSkeleton />}>
               <Search />
             </Suspense>
           </div>
-          <div className="flex justify-end space-x-2 md:w-1/3">
+          <div className="flex justify-end space-x-2 col-span-2">
             <Account />
             <CartModal />
           </div>
+        </div>
+        <div className="lg:hidden w-full justify-center">
+          <Suspense fallback={<SearchSkeleton />}>
+            <Search />
+          </Suspense>
         </div>
       </nav>
     </>

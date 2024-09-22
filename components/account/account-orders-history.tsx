@@ -72,11 +72,11 @@ export async function AccountOrdersHistory() {
               </div>
               <div>
                 {/* {JSON.stringify(order.node)} */}
-                <a href={order?.node?.statusPageUrl} target="_blank">
+                {/* <a href={order?.node?.statusPageUrl} target="_blank">
                   <Button variant="outline" className="text-sm">
-                    View Order
+                    View
                   </Button>
-                </a>
+                </a> */}
                 {/* <Button variant="outline" className="text-sm">
                   View Invoice
                 </Button> */}

@@ -31,7 +31,7 @@ export default async function AccountPage() {
 
   return (
     <>
-      <div className="mx-auto max-w-screen-sm p-4">
+      <div className="mx-auto max-w-screen-sm">
         <Tabs defaultValue="orders" className="">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="orders">Orders</TabsTrigger>

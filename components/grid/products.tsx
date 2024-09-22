@@ -26,7 +26,7 @@ export async function Products() {
               </div>
 
               <div className="flex items-center space-x-2 px-2">
-                <b className="text-red-500">
+                <b className="text-primary">
                   {product.priceRange.maxVariantPrice.currencyCode}{' '}
                   {product.priceRange.maxVariantPrice.amount}
                 </b>

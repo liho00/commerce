@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server';
+
 export type SortFilterItem = {
   title: string;
   slug: string | null;
@@ -6,7 +8,7 @@ export type SortFilterItem = {
 };
 
 export const defaultSort: SortFilterItem = {
-  title: 'Relevance',
+  title: '搜索结果',
   slug: null,
   sortKey: 'RELEVANCE',
   reverse: false
@@ -14,10 +16,10 @@ export const defaultSort: SortFilterItem = {
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
-  { title: 'Trending', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
-  { title: 'Latest arrivals', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
-  { title: 'Price: Low to high', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
-  { title: 'Price: High to low', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
+  { title: '热卖中', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
+  { title: '最新发布', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
+  { title: '价格：从低到高', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
+  { title: '价格：从高到低', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
 ];
 
 export const TAGS = {

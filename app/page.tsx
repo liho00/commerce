@@ -26,7 +26,7 @@ export default async function HomePage() {
   return (
     <>
       <div className="grid gap-4 lg:grid-cols-12">
-        <div className="hidden lg:block w-full space-y-2 rounded-2xl bg-primary px-2 py-4 lg:col-span-2">
+        <div className="hidden w-full space-y-2 rounded-2xl bg-primary px-2 py-4 lg:col-span-2 lg:block">
           <h1 className="px-4 text-sm font-bold text-white">分类</h1>
           <div className="flex flex-col gap-2 text-xs">
             <Button variant="ghost" className="justify-start text-left text-white hover:text-black">
@@ -72,7 +72,7 @@ export default async function HomePage() {
             <div className="flex w-full items-center justify-around overflow-auto rounded-2xl bg-gray-100 px-4 py-1 lg:col-span-4 lg:row-span-1">
               <HomepageMenu />
             </div>
-            <div className="hidden lg:grid grid-cols-1 gap-4 lg:col-span-4 lg:row-span-6 lg:grid-cols-4">
+            <div className="hidden grid-cols-1 gap-4 lg:col-span-4 lg:row-span-6 lg:grid lg:grid-cols-4">
               <div className="">
                 <Carouselss />
               </div>
@@ -80,16 +80,18 @@ export default async function HomePage() {
               <div className="grid w-full grid-rows-2 gap-4 lg:col-span-3 lg:grid-cols-3">
                 <div className="rounded-2xl bg-gray-100 lg:col-span-2">
                   <div className="flex flex-col items-start justify-start space-y-4 p-4 text-sm font-medium">
-                    <div
+                    <a
                       className={cn(
                         'group rounded-full border border-black/5 bg-neutral-100 text-xs text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800'
                       )}
+                      href="https://www.6ren.co/"
+                      target="_blank"
                     >
                       <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
                         <span>✨ AI 今日解析</span>
                         <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                       </AnimatedShinyText>
-                    </div>
+                    </a>
                     <AIChat />
                   </div>
                 </div>

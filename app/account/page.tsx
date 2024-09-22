@@ -21,7 +21,7 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { getTranslations } from 'next-intl/server';
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 // export const runtime = 'edge';
 export default async function AccountPage() {
@@ -35,7 +35,7 @@ export default async function AccountPage() {
   return (
     <>
       <div className="mx-auto max-w-screen-sm">
-        <Tabs defaultValue="orders" className="">
+        {/* <Tabs defaultValue="orders" className="">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="orders">{t('page.rDz9kAgA3s72C0FbDbhLU')}</TabsTrigger>
             <TabsTrigger value="addresses">{t('page.0R8Or9ENKObFE-cawJThW')}</TabsTrigger>
@@ -55,6 +55,17 @@ export default async function AccountPage() {
           <TabsContent value="addresses">
             <Card>
               <CardHeader>
+                <Button asChild>
+                  <a
+                    href={`https://shopify.com/${
+                      process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID
+                    }/account/profile`}
+                    target="_blank"
+                  >
+                    https://shopify.com/67008397566/account/profile
+                  </a>
+                </Button>
+
                 <CardTitle>{t('page.ks_zwZ-yCkBobRY26_dmk')}</CardTitle>
                 <CardDescription>{t('page.Nwyzhzx_e-DY2Dx0weQTl')}</CardDescription>
               </CardHeader>
@@ -204,7 +215,7 @@ export default async function AccountPage() {
               </CardFooter>
             </Card>
           </TabsContent>
-        </Tabs>
+        </Tabs> */}
       </div>
     </>
   );

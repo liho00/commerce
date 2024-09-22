@@ -4,25 +4,27 @@ import { NextResponse } from 'next/server';
 import { parseJSON } from 'lib/shopify/customer/utils/parse-json';
 import { isShopifyError } from 'lib/type-guards';
 import {
-    checkExpires,
-    createAllCookies,
-    exchangeAccessToken,
-    initialAccessToken,
-    removeAllCookies
+  checkExpires,
+  createAllCookies,
+  exchangeAccessToken,
+  initialAccessToken,
+  removeAllCookies
 } from './auth-helpers';
 import {
-    SHOPIFY_CLIENT_ID,
-    SHOPIFY_CUSTOMER_ACCOUNT_API_URL,
-    SHOPIFY_CUSTOMER_API_VERSION,
-    SHOPIFY_ORIGIN,
-    SHOPIFY_USER_AGENT
+  SHOPIFY_CLIENT_ID,
+  SHOPIFY_CUSTOMER_ACCOUNT_API_URL,
+  SHOPIFY_CUSTOMER_API_VERSION,
+  SHOPIFY_ORIGIN,
+  SHOPIFY_USER_AGENT
 } from './constants';
 
 type ExtractVariables<T> = T extends { variables: object } ? T['variables'] : never;
 const customerAccountApiUrl = SHOPIFY_CUSTOMER_ACCOUNT_API_URL;
 const apiVersion = SHOPIFY_CUSTOMER_API_VERSION;
 const userAgent = SHOPIFY_USER_AGENT;
-const customerEndpoint = `https://shopify.com/67008397566/account/customer/api/${apiVersion}/graphql`;
+const customerEndpoint = `https://shopify.com/${
+  process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID
+}/account/customer/api/${apiVersion}/graphql`;
 
 //NEVER CACHE THIS! Doesn't see to be cached anyway b/c
 //https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#opting-out-of-data-caching

@@ -11,6 +11,9 @@ import { Toaster } from 'sonner';
 import Providers from './providers';
 import './globals.css';
 import Footer from 'components/layout/footer';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+dayjs.locale('zh-cn');
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -57,7 +60,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <Providers>
             <CartProvider cartPromise={cart}>
               <Navbar />
-              <main className="mx-auto max-w-screen-2xl space-y-4 mt-4 px-4">
+              <main className="mx-auto mt-4 max-w-screen-2xl space-y-4 px-4">
                 {children}
                 <Toaster closeButton />
               </main>

@@ -7,6 +7,7 @@ export function Annoucements() {
   const t = useTranslations();
   const [hide, setHide] = useState(false);
 
+  if (hide) return null;
   return (
     <>
       <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2 sm:px-3.5 sm:before:flex-1">
@@ -54,7 +55,13 @@ export function Annoucements() {
           </a>
         </div>
         <div className="flex flex-1 justify-end">
-          <button type="button" className="-m-3 p-3 focus-visible:outline-offset-[-4px]">
+          <button
+            type="button"
+            className="-m-3 p-3 focus-visible:outline-offset-[-4px]"
+            onClick={() => {
+              setHide(true);
+            }}
+          >
             <span className="sr-only">Dismiss</span>
             <XMarkIcon aria-hidden="true" className="h-5 w-5 text-gray-900" />
           </button>

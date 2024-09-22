@@ -36,6 +36,16 @@ const CUSTOMER_FRAGMENT = `#graphql
           title
           variantTitle
           sku
+          image {
+            altText
+            height
+            width
+            url
+          }
+          price {
+            amount
+            currencyCode
+          }
         }
       }
     }

@@ -42,7 +42,7 @@ export async function AccountOrdersHistory() {
   });
 
   const orders = data?.customer?.orders?.edges || [];
-  console.log(data);
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <div className="container mx-auto text-xs">
@@ -50,8 +50,10 @@ export async function AccountOrdersHistory() {
           <a
             key={order.node.id}
             href={order?.node?.statusPageUrl}
-            className="flex flex-col border-t py-8 transition hover:bg-gray-100 px-4"
+            target="_blank"
+            className="flex flex-col border-t px-4 py-8 transition hover:bg-gray-100"
           >
+            {/* {JSON.stringify(order)} */}
             <div className="mb-4 flex items-center justify-between">
               <div>
                 <div className="font-semibold">
@@ -90,16 +92,20 @@ export async function AccountOrdersHistory() {
             {order.node.lineItems.edges.map((item: any, index: any) => (
               <div key={index} className="flex border-t py-8">
                 <img
-                  src={item?.node?.image || '/img/empty.svg'}
+                  src={item?.node?.image?.url || '/img/empty.svg'}
                   alt={item.name}
                   className="mr-6 h-24 w-24 rounded-md bg-[#eee] object-contain"
                 />
                 <div className="flex-grow">
+                  {/* {JSON.stringify(item)} */}
                   <div className="mb-2 flex justify-between">
                     <h3 className="text-sm font-semibold">{item.node.title}</h3>
-                    <span className="font-semibold">${(0).toFixed(2)}</span>
+                    <span className="font-semibold">
+                      ${(parseFloat(item.node.price.amount) * item.node.quantity).toFixed(2)}
+                    </span>
                   </div>
-                  <p className="mb-4 text-gray-600">{item.node.description}</p>
+                  <p className="mb-4 text-gray-600">{item.node.variantTitle}</p>
+                  <p className="mb-4 text-gray-600">{item.node.quantity}</p>
                   <div className="flex items-center justify-between">
                     {/* <div className="flex items-center">
                       <svg

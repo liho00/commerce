@@ -163,7 +163,7 @@ export default async function HomePage() {
                 <Button className="w-full">立即登录</Button>
               </Form>
             ) : (
-              <Button className="w-full">
+              <Button className="w-full" asChild>
                 <a href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account`}>
                   我的账户
                 </a>

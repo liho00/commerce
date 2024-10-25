@@ -5,7 +5,7 @@ import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
 import { Suspense } from 'react';
 // import { useTranslations } from 'next-intl';
-import {getTranslations} from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -17,17 +17,22 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
   const t = await getTranslations();
 
-
   const navigation = {
     main: [
-      { name: t('footer.RMNG3wcNyJ7hM-ErKYsnH'), href: '#' },
-      { name: t('footer.B7sVPVqpW-sDT04WPeVTK'), href: '#' },
-      { name: t('footer.XODqkyjylqU4W75jcboOB'), href: '#' },
-      { name: t('footer.vE-2aHwx8EUCpUWNeppON'), href: '#' }
+      { name: 'Privacy policy', href: 'https://epray-store.myshopify.com/policies/privacy-policy' },
+      {
+        name: 'Terms of service',
+        href: 'https://epray-store.myshopify.com/policies/terms-of-service'
+      },
+      {
+        name: 'Shipping policy',
+        href: 'https://epray-store.myshopify.com/policies/shipping-policy'
+      },
+      { name: 'Return policy', href: 'https://epray-store.myshopify.com/policies/refund-policy' }
     ],
     social: [
       {
-        name: "Facebook",
+        name: 'Facebook',
         href: '#',
         icon: (props: any) => (
           <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -137,7 +142,7 @@ export default async function Footer() {
         </div>
       </footer> */}
 
-      <footer className="bg-slate-50 mt-10">
+      <footer className="mt-10 bg-slate-50">
         <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
           <nav
             aria-label="Footer"
@@ -145,7 +150,11 @@ export default async function Footer() {
           >
             {navigation.main.map((item) => (
               <div key={item.name} className="pb-6">
-                <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900 whitespace-nowrap">
+                <a
+                  href={item.href}
+                  target="_blank"
+                  className="whitespace-nowrap text-sm leading-6 text-gray-600 hover:text-gray-900"
+                >
                   {item.name}
                 </a>
               </div>

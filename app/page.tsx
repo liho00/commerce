@@ -120,7 +120,7 @@ export default async function HomePage() {
                         <h3 className="mb-1 font-medium">中元节至尊配套</h3>
                         <div className="flex items-center justify-between">
                           <p className="text-xs text-primary">限时8.4折</p>
-                          <p className="font-bold text-primary">¥ 58.41</p>
+                          <p className="font-bold text-primary">MYR 58.41</p>
                         </div>
                       </div>
                     </div>

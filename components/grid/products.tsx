@@ -33,8 +33,7 @@ export async function Products() {
                 <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
                   新品上市
                 </span>
-                {/* <p className="text-sm text-gray-600">
-                </p> */}
+                {/* <p className="text-sm text-gray-600"></p> */}
               </div>
             </div>
           </Link>

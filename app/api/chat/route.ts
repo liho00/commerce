@@ -2,9 +2,8 @@ import { createOpenAI } from '@ai-sdk/openai';
 import { convertToCoreMessages, streamText } from 'ai';
 
 const openrouter = createOpenAI({
-  apiKey:
-    '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',
-  baseURL: 'https://openrouter.ai/api/v1',
+  apiKey: process.env.OPENROUTER_API_KEY,
+  baseURL: 'https://openrouter.ai/api/v1'
 });
 
 // Allow streaming responses up to 30 seconds
@@ -20,7 +19,7 @@ export async function POST(req: Request) {
     async onFinish({ text, toolCalls, toolResults, usage, finishReason }) {
       // implement your own logic here, e.g. for storing messages
       // or recording token usage
-    },
+    }
   });
 
   // Respond with the stream

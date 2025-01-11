@@ -37,7 +37,7 @@ export function Annoucements() {
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <p className="text-xs leading-6 text-gray-900">
-            <strong className="hidden font-semibold lg:inline">ePray 2024</strong>
+            <strong className="hidden font-semibold lg:inline">ePray 2025</strong>
             <svg
               viewBox="0 0 2 2"
               aria-hidden="true"
@@ -45,11 +45,11 @@ export function Annoucements() {
             >
               <circle r={1} cx={1} cy={1} />
             </svg>
-            6 月 7 日至 9 日在丹佛与我们一起了解接下来的动态
+            1 月 10 日在TRX Exchange与我们一起分享年度表扬大会
           </p>
           <a
-            href="#"
-            className="hidden flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 lg:flex"
+            href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account`}
+            className="hidden flex-none rounded-full bg-primary px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 lg:flex"
           >
             立即注册 <span aria-hidden="true">&rarr;</span>
           </a>

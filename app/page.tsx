@@ -12,7 +12,7 @@ export const metadata = {
     type: 'website'
   }
 };
-import Carouselss from './carousel';
+import Carousels from './carousel';
 import HomepageMenu from './homepage-menu';
 import { Calendar } from '@/components/ui/calendar';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
@@ -22,9 +22,12 @@ import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import { Star, ShoppingBag, Clock } from 'lucide-react';
 import Form from 'next/form';
 import { signIn, signOut } from 'auth/index';
+import { getProducts } from 'lib/shopify';
+import Link from 'next/link';
 
 export default async function HomePage() {
   const session = await auth();
+  const products = await getProducts({});
 
   return (
     <>
@@ -33,11 +36,11 @@ export default async function HomePage() {
           <h1 className="px-4 text-sm font-bold text-white">分类</h1>
           <div className="flex flex-col gap-2 text-xs">
             <Button variant="ghost" className="justify-start text-left text-white hover:text-black">
-              <Star className="mr-2 h-4 w-4" /> 金纸 / 金箔 / 金银纸
+              <Star className="mr-2 h-4 w-4" /> 龙香
             </Button>
             <Button variant="ghost" className="justify-start text-left text-white hover:text-black">
               <Star className="mr-2 h-4 w-4" />
-              龙香 / 佛香 / 佛珠
+              福贡
             </Button>
             <Button variant="ghost" className="justify-start text-left text-white hover:text-black">
               <Star className="mr-2 h-4 w-4" />
@@ -75,13 +78,13 @@ export default async function HomePage() {
             <div className="flex w-full items-center justify-around overflow-auto rounded-2xl bg-gray-100 px-4 py-1 lg:col-span-4 lg:row-span-1">
               <HomepageMenu />
             </div>
-            <div className="hidden grid-cols-1 gap-4 lg:col-span-4 lg:row-span-6 lg:grid lg:grid-cols-4">
+            <div className="hidden grid-cols-1 gap-4 lg:col-span-4 lg:row-span-7 lg:grid lg:grid-cols-4">
               <div className="">
-                <Carouselss />
+                <Carousels />
               </div>
 
               <div className="grid w-full grid-rows-2 gap-4 lg:col-span-3 lg:grid-cols-3">
-                <div className="rounded-2xl bg-gray-100 lg:col-span-2">
+                <div className="rounded-2xl bg-gray-100 lg:col-span-3">
                   <div className="flex flex-col items-start justify-start space-y-4 p-4 text-sm font-medium">
                     <a
                       className={cn(
@@ -99,32 +102,41 @@ export default async function HomePage() {
                   </div>
                 </div>
 
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <div className="rounded-2xl bg-gray-100 p-4">
-                    <div className="mb-4 flex items-center justify-between">
-                      <div className="flex items-center truncate">
-                        <h2 className="truncate font-bold">百亿补贴·买贵必赔</h2>
-                        <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
-                          限时秒
-                        </span>
+                {products.splice(0, 3).map((product) => (
+                  <Link
+                    className="relative inline-block h-full w-full"
+                    href={`/product/${product.handle}`}
+                    prefetch={true}
+                  >
+                    <div className="rounded-2xl bg-gray-100 p-4">
+                      <div className="mb-4 flex items-center justify-between">
+                        <div className="flex items-center truncate">
+                          <h2 className="truncate font-bold">买贵必赔</h2>
+                          <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
+                            限时秒
+                          </span>
+                        </div>
+                        <ChevronRight className="h-5 w-5 text-gray-400" />
                       </div>
-                      <ChevronRight className="h-5 w-5 text-gray-400" />
-                    </div>
-                    <div className="flex space-x-4">
-                      <div className="flex-1">
-                        <img
-                          src="https://cdn.shopify.com/s/files/1/0670/0839/7566/files/WhatsAppImage2024-09-10at13.54.52.jpg?v=1726737054"
-                          alt="Libresse products"
-                          className="mb-2 h-64 w-full rounded-lg bg-white object-contain lg:h-16"
-                        />
-                        <h3 className="mb-1 font-medium">中元节至尊配套</h3>
-                        <div className="flex items-center justify-between">
-                          <p className="text-xs text-primary">限时8.4折</p>
-                          <p className="font-bold text-primary">MYR 58.41</p>
+                      <div className="flex space-x-4">
+                        <div className="flex-1">
+                          <img
+                            src={product.featuredImage.url}
+                            alt="Libresse products"
+                            className="mb-2 h-64 w-full rounded-lg bg-white object-contain lg:h-16"
+                          />
+                          <h3 className="mb-1 font-medium">{product.title}</h3>
+                          <div className="flex items-center justify-between">
+                            <p className="text-xs text-primary">限时8.4折</p>
+                            <p className="font-bold text-primary">
+                              {product.priceRange.maxVariantPrice.currencyCode}{' '}
+                              {product.priceRange.maxVariantPrice.amount}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
   // Call the language model
   const result = await streamText({
-    model: openrouter('qwen/qwen-2-7b-instruct'),
+    model: openrouter('openai/gpt-3.5-turbo'),
     messages: convertToCoreMessages(messages),
     async onFinish({ text, toolCalls, toolResults, usage, finishReason }) {
       // implement your own logic here, e.g. for storing messages

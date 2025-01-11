@@ -9,7 +9,7 @@ export async function Products() {
 
   return (
     <>
-      <div className="grid lg:grid-cols-6 gap-4">
+      <div className="grid gap-4 lg:grid-cols-6">
         {products.map((product, i) => (
           <Link
             className="relative inline-block h-full w-full"
@@ -30,7 +30,11 @@ export async function Products() {
                   {product.priceRange.maxVariantPrice.currencyCode}{' '}
                   {product.priceRange.maxVariantPrice.amount}
                 </b>
-                <p className="text-sm text-gray-600">15人购买</p>
+                <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
+                  新品上市
+                </span>
+                {/* <p className="text-sm text-gray-600">
+                </p> */}
               </div>
             </div>
           </Link>

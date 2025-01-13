@@ -11,16 +11,18 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Link from 'next/link';
 
-export default function App() {
+export default function App({ products }) {
   const [swiper, setSwiper] = useState(null);
+
   return (
     <>
       <div className="flex flex-grow flex-col space-y-2 overflow-hidden">
         <div className="flex w-full flex-shrink-0 justify-start gap-3 overflow-hidden bg-transparent">
           <Button
             variant="ghost"
-            className="flex-shrink-0 h-auto py-2"
+            className="h-auto flex-shrink-0 py-2"
             size="icon"
             onClick={() => {
               swiper.slidePrev();
@@ -39,102 +41,24 @@ export default function App() {
             </svg>
           </Button>
           <Swiper onSwiper={setSwiper} spaceBetween={10} slidesPerView={'auto'}>
-            {[
-              {
+            {products
+              .map((product, index) => ({
                 svg: <path d="M8 4h8v2H8V4zm0 4h8v2H8V8zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" />,
-                label: '龙香'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2s2-.9 2-2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '福贡'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v3.17l-1.59-1.59L7 7l4 4 4-4-1.41-1.41L12 7.17V4c0-.55.45-1 1-1s1 .45 1 1v1h2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '蜡烛'
-              },
-              {
-                svg: (
-                  <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z" />
-                ),
-                label: '套装'
-              },
-              {
-                svg: (
-                  <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z" />
-                ),
-                label: '佛具'
-              },
-              {
-                svg: <path d="M8 4h8v2H8V4zm0 4h8v2H8V8zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" />,
-                label: '金纸'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2s2-.9 2-2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '香品'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v3.17l-1.59-1.59L7 7l4 4 4-4-1.41-1.41L12 7.17V4c0-.55.45-1 1-1s1 .45 1 1v1h2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '蜡烛'
-              },
-              {
-                svg: (
-                  <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z" />
-                ),
-                label: '套装'
-              },
-              {
-                svg: (
-                  <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z" />
-                ),
-                label: '佛具'
-              },
-              {
-                svg: <path d="M8 4h8v2H8V4zm0 4h8v2H8V8zm0 4h8v2H8v-2zm0 4h8v2H8v-2z" />,
-                label: '金纸'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2s2-.9 2-2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '香品'
-              },
-              {
-                svg: (
-                  <path d="M12 2c-1.1 0-2 .9-2 2v3.17l-1.59-1.59L7 7l4 4 4-4-1.41-1.41L12 7.17V4c0-.55.45-1 1-1s1 .45 1 1v1h2V4c0-1.1-.9-2-2-2zm0 10c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                ),
-                label: '蜡烛'
-              },
-              {
-                svg: (
-                  <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z" />
-                ),
-                label: '套装'
-              },
-              {
-                svg: (
-                  <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z" />
-                ),
-                label: '佛具'
-              }
-            ]?.map((provider, index) => (
-              <SwiperSlide className="!w-auto">
-                <Button variant="ghost" key={provider?.id}>
-                  {provider?.label}
-                </Button>
-              </SwiperSlide>
-            ))}
+                label: product?.title
+              }))
+              ?.map((provider, index) => (
+                <SwiperSlide className="!w-auto">
+                  <Link href={`/product/${products[index].handle}`} className="">
+                    <Button variant="ghost" key={provider?.id}>
+                      {provider?.label}
+                    </Button>
+                  </Link>
+                </SwiperSlide>
+              ))}
           </Swiper>
           <Button
             variant="ghost"
-            className="flex-shrink-0 h-auto py-2"
+            className="h-auto flex-shrink-0 py-2"
             size="icon"
             onClick={() => {
               swiper.slideNext();

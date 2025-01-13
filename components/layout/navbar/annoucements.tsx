@@ -45,7 +45,7 @@ export function Annoucements() {
             >
               <circle r={1} cx={1} cy={1} />
             </svg>
-            1 月 10 日在TRX Exchange与我们一起分享年度表扬大会
+            从即日起至 2025 年 2 月 1 日，新用户注册即可获得 20 MYR优惠券
           </p>
           <a
             href={`https://shopify.com/${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_ID}/account`}

@@ -20,6 +20,7 @@ export function ProductVariant({ product }: { product: Product }) {
       </div>
       <VariantSelector options={product.options} variants={product.variants} />
       <AddToCart product={product} />
+      {/* <h1 className="mb-2 text-2xl">{product.description}</h1> */}
     </>
   );
 }
@@ -31,7 +32,7 @@ export function ProductDescription({ product }: { product: Product }) {
       <hr />
       {product.descriptionHtml ? (
         <Prose
-          className="mx-auto text-sm leading-tight text-gray-800 dark:text-white/[60%] py-8"
+          className="mx-auto text-sm leading-tight text-gray-800 dark:text-white/[60%] py-8 max-w-screen-sm"
           html={product.descriptionHtml}
         />
       ) : null}

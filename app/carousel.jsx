@@ -31,7 +31,7 @@ export default function App({ products }) {
             <Link href={`/product/${product.handle}`} className="">
               <img
                 src={product.featuredImage.url}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
                 style={
                   {
                     // aspectRatio: '139/502'

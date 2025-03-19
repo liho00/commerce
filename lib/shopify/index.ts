@@ -414,7 +414,7 @@ export async function getProducts({
     tags: [TAGS.products],
     variables: {
       query,
-      reverse,
+      reverse: true,
       sortKey
     }
   });

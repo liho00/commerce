@@ -10,8 +10,8 @@ export type SortFilterItem = {
 export const defaultSort: SortFilterItem = {
   title: '搜索结果',
   slug: null,
-  sortKey: 'RELEVANCE',
-  reverse: false
+  sortKey: 'CREATED_AT',
+  reverse: true
 };
 
 export const sorting: SortFilterItem[] = [

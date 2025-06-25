@@ -130,7 +130,7 @@ export default function CartModal() {
                                       item.merchandise.product.featuredImage.altText ||
                                       item.merchandise.product.title
                                     }
-                                    src={item.merchandise.product.featuredImage.url}
+                                    src={item.merchandise.product?.featuredImage?.url}
                                   />
                                 </div>
                                 <Link

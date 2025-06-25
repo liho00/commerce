@@ -97,7 +97,7 @@ export default async function HomePage() {
                     </div>
                     <div className="flex flex-grow flex-col">
                       <img
-                        src={product.featuredImage.url}
+                        src={product?.featuredImage?.url}
                         alt="Libresse products"
                         className="mb-2 h-full w-full rounded-lg bg-gray-100 object-contain"
                       />

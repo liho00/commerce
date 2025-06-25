@@ -20,7 +20,7 @@ export async function Products() {
               <div className="space-y-2">
                 <img
                   className="h-64 w-full rounded-2xl bg-gray-100 object-contain"
-                  src={product.featuredImage.url}
+                  src={product?.featuredImage?.url}
                 />
                 <h1 className="px-2 font-medium">{product.title}</h1>
               </div>

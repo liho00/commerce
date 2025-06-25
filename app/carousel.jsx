@@ -30,7 +30,7 @@ export default function App({ products }) {
           <SwiperSlide key={index}>
             <Link href={`/product/${product.handle}`} className="">
               <img
-                src={product.featuredImage.url}
+                src={product?.featuredImage?.url}
                 className="h-full w-full object-contain"
                 style={
                   {

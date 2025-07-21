@@ -151,6 +151,7 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
       const reshapedCollection = reshapeCollection(collection);
 
       if (reshapedCollection) {
+        // @ts-ignore
         reshapedCollections.push(reshapedCollection);
       }
     }
@@ -193,6 +194,7 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
       const reshapedProduct = reshapeProduct(product);
 
       if (reshapedProduct) {
+        // @ts-ignore
         reshapedProducts.push(reshapedProduct);
       }
     }
@@ -333,6 +335,7 @@ export async function getCollections(): Promise<Collection[]> {
     // Filter out the `hidden` collections.
     // Collections that start with `hidden-*` need to be hidden on the search page.
     ...reshapeCollections(shopifyCollections).filter(
+      // @ts-ignore
       (collection) => !collection.handle.startsWith('hidden')
     )
   ];

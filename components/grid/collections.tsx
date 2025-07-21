@@ -15,7 +15,7 @@ export async function Collections() {
         {collections.map((collection, i) => (
           <Link
             className="relative inline-block h-full w-full"
-            href={`/collection/${collection.handle}`}
+            href={`/collections/${collection.handle}`}
             prefetch={true}
           >
             <div className="space-y-2 rounded-2xl pb-2 ring-primary transition-all hover:ring">

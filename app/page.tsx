@@ -2,6 +2,7 @@ import { auth } from 'auth';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { Products } from 'components/grid/products';
+import { Collections } from 'components/grid/collections';
 
 import Footer from 'components/layout/footer';
 import { AIChat } from 'components/ai-chat';
@@ -42,7 +43,7 @@ export default async function HomePage() {
               <Link href={`/product/${product.handle}`} className="flex w-full">
                 <Button
                   variant="ghost"
-                  className="justify-start text-left text-white hover:text-black w-full"
+                  className="w-full justify-start text-left text-white hover:text-black"
                 >
                   <Star className="mr-2 h-4 w-4" /> {product.title}
                 </Button>
@@ -218,12 +219,26 @@ export default async function HomePage() {
           src="https://gw.alicdn.com/imgextra/i2/O1CN011E0R1J23w9lJDeJXk_!!6000000007319-2-tps-192-192.png"
         ></img>
         <div>
+          <div className="font-medium text-primary">系列产品</div>
+          <div className="text-xs text-primary">精选好物推荐</div>
+        </div>
+      </div>
+      <br />
+      <Collections />
+      <div className="flex items-center space-x-2">
+        <img
+          className="w-12 rounded-full object-contain"
+          style={{
+            backgroundColor: 'rgba(255, 0, 54, 0.082)'
+          }}
+          src="https://gw.alicdn.com/imgextra/i2/O1CN011E0R1J23w9lJDeJXk_!!6000000007319-2-tps-192-192.png"
+        ></img>
+        <div>
           <div className="font-medium text-primary">猜你喜欢</div>
           <div className="text-xs text-primary">精选好物推荐</div>
         </div>
       </div>
       <br />
-
       <Products />
     </>
   );

@@ -9,6 +9,9 @@ const collectionFragment = /* GraphQL */ `
     seo {
       ...seo
     }
+    image {
+      src
+    }
     updatedAt
   }
   ${seoFragment}

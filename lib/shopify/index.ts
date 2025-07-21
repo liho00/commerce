@@ -278,7 +278,7 @@ export async function getCollection(handle: string): Promise<Collection | undefi
     query: getCollectionQuery,
     tags: [TAGS.collections],
     variables: {
-      handle
+      handle: decodeURIComponent(handle)
     }
   });
 
@@ -298,7 +298,7 @@ export async function getCollectionProducts({
     query: getCollectionProductsQuery,
     tags: [TAGS.collections, TAGS.products],
     variables: {
-      handle: collection,
+      handle: decodeURIComponent(collection),
       reverse,
       sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
     }
@@ -340,12 +340,21 @@ export async function getCollections(): Promise<Collection[]> {
   return collections;
 }
 
+export async function getAllCollections(): Promise<Collection[]> {
+  const res = await shopifyFetch<ShopifyCollectionsOperation>({
+    query: getCollectionsQuery,
+    tags: [TAGS.collections]
+  });
+  const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
+  return shopifyCollections.filter(collection => !collection.handle.startsWith('hidden')) as Collection[];
+}
+
 export async function getMenu(handle: string): Promise<Menu[]> {
   const res = await shopifyFetch<ShopifyMenuOperation>({
     query: getMenuQuery,
     tags: [TAGS.collections],
     variables: {
-      handle
+      handle: decodeURIComponent(handle)
     }
   });
 
@@ -361,7 +370,9 @@ export async function getPage(handle: string): Promise<Page> {
   const res = await shopifyFetch<ShopifyPageOperation>({
     query: getPageQuery,
     cache: 'no-store',
-    variables: { handle }
+    variables: {
+      handle: decodeURIComponent(handle)
+    }
   });
 
   return res.body.data.pageByHandle;
@@ -381,7 +392,7 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     query: getProductQuery,
     tags: [TAGS.products],
     variables: {
-      handle
+      handle: decodeURIComponent(handle)
     }
   });
 

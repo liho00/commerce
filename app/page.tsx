@@ -41,7 +41,7 @@ export default async function HomePage() {
           <h1 className="px-4 text-sm font-bold text-white">分类</h1>
           <div className="flex flex-col gap-2 text-xs">
             {collections.slice(0, 10).map((collection) => (
-              <Link href={`/product/${collection.handle}`} className="flex w-full">
+              <Link href={`/collections/${collection.handle}`} className="flex w-full">
                 <Button
                   variant="ghost"
                   className="w-full justify-start text-left text-white hover:text-black"

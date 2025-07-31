@@ -78,7 +78,7 @@ export default async function CategoryPage({
                 </div>
                 <div className="mr-auto w-auto text-2xl">
                   {collection?.description && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-gray-600 dark:text-gray-400 pr-5 pb-5">
                       {collection.description}
                     </p>
                   )}

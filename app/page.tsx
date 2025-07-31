@@ -23,13 +23,14 @@ import AnimatedShinyText from '@/components/magicui/animated-shiny-text';
 import { Star, ShoppingBag, Clock } from 'lucide-react';
 import Form from 'next/form';
 import { signIn, signOut } from 'auth/index';
-import { getProducts } from 'lib/shopify';
+import { getAllCollections, getProducts } from 'lib/shopify';
 import Link from 'next/link';
 
 export default async function HomePage() {
   const session = await auth();
   const products = await getProducts({});
-
+  const collections = (await getAllCollections()) as any;
+  console.log('collections', collections);
   return (
     <>
       {/* <div className="flex h-14 w-full items-center justify-around overflow-auto rounded-2xl bg-gray-100 px-4 py-1 lg:col-span-4 lg:row-span-1">
@@ -39,13 +40,13 @@ export default async function HomePage() {
         <div className="hidden w-full space-y-2 rounded-2xl bg-primary px-2 py-4 lg:col-span-2 lg:block">
           <h1 className="px-4 text-sm font-bold text-white">分类</h1>
           <div className="flex flex-col gap-2 text-xs">
-            {products.slice(0, 10).map((product) => (
-              <Link href={`/product/${product.handle}`} className="flex w-full">
+            {collections.slice(0, 10).map((collection) => (
+              <Link href={`/product/${collection.handle}`} className="flex w-full">
                 <Button
                   variant="ghost"
                   className="w-full justify-start text-left text-white hover:text-black"
                 >
-                  <Star className="mr-2 h-4 w-4" /> {product.title}
+                  <Star className="mr-2 h-4 w-4" /> {collection.title}
                 </Button>
               </Link>
             ))}

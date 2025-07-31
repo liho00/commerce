@@ -28,7 +28,7 @@ export async function Collections() {
               </div>
 
               <div className="flex items-center space-x-2 px-2">
-                <b className="text-primary">{collection.description}</b>
+                <b className="text-primary line-clamp-2">{collection.description}</b>
                 <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
                   新品上市
                 </span>

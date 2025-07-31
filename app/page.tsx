@@ -226,7 +226,7 @@ export default async function HomePage() {
       </div>
       <br />
       <Collections />
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-2 pt-6">
         <img
           className="w-12 rounded-full object-contain"
           style={{

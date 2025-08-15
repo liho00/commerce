@@ -90,7 +90,7 @@ export default async function HomePage() {
                   >
                     <div className="mb-4 flex items-center justify-between">
                       <div className="flex items-center truncate">
-                        <h2 className="truncate font-bold">买贵必赔</h2>
+                        <h2 className="truncate font-bold">新品上市</h2>
                         <span className="ml-2 whitespace-nowrap rounded bg-primary px-1 py-0.5 text-xs text-white">
                           限时秒
                         </span>
